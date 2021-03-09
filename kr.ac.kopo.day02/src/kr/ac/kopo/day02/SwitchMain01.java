@@ -3,16 +3,16 @@ package kr.ac.kopo.day02;
 import java.util.Scanner;
 
 /*
- * 1 - 3 »çÀÌ Á¤¼ö ÀÔ·Â : 1
+ * 1 - 3 ì‚¬ì´ ì •ìˆ˜ ì…ë ¥ : 1
  * ONE
  * 
- * 1 - 3 »çÀÌ Á¤¼ö ÀÔ·Â : 2
+ * 1 - 3 ì‚¬ì´ ì •ìˆ˜ ì…ë ¥ : 2
  * TWO
  * 
- * 1 - 3 »çÀÌ Á¤¼ö ÀÔ·Â : 3
+ * 1 - 3 ì‚¬ì´ ì •ìˆ˜ ì…ë ¥ : 3
  * THREE
  * 
- * 1 - 3 »çÀÌ Á¤¼ö ÀÔ·Â : 6
+ * 1 - 3 ì‚¬ì´ ì •ìˆ˜ ì…ë ¥ : 6
  * ERROR
  * 
  */
@@ -23,13 +23,13 @@ public class SwitchMain01 {
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("1 - 3 »çÀÌÀÇ Á¤¼ö :");
+		System.out.print("1 - 3 ì‚¬ì´ì˜ ì •ìˆ˜ :");
 		int num = sc.nextInt();
 
 		switch (num) {
 		case 1:
 			System.out.println("ONE");
-			System.out.println("1¼±ÅÃ");
+			System.out.println("1ì„ íƒ");
 			break;
 		case 2:
 			System.out.println("TWO");
@@ -37,7 +37,7 @@ public class SwitchMain01 {
 		case 3:
 			System.out.println("THREE");
 			break;
-		default: // default´Â ¼ø¼­ÀÇ »ó°ü¾øÀÌ Ç×»ó ¸¶Áö¸·¿¡ ¼öÇàÀÌ µÊ
+		default: // defaultëŠ” ìˆœì„œì˜ ìƒê´€ì—†ì´ í•­ìƒ ë§ˆì§€ë§‰ì— ìˆ˜í–‰ì´ ë¨
 			System.out.println("ERROR");
 			break;
 		}

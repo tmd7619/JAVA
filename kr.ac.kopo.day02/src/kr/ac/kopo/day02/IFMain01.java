@@ -6,9 +6,9 @@ public class IFMain01 {
 
 		int a = 10, b = 5;
 
-		System.out.println("MAX : " + (a > b ? a : b)); // »ïÇ×¿¬»êÀÚ
+		System.out.println("MAX : " + (a > b ? a : b)); // ì‚¼í•­ì—°ì‚°ìž
 
-		if (a > b) { // ctrl + Shift + f : ÀÚµ¿Á¤·Ä
+		if (a > b) { // ctrl + Shift + f : ìžë™ì •ë ¬
 			System.out.println("Max : " + a);
 		} else {
 			System.out.println("Max : " + b);
@@ -16,7 +16,7 @@ public class IFMain01 {
 		}
 
 		/*
-		 * a°¡ bº¸´Ù Å©´Ù¸é a Ãâ·Â a°¡ bº¸´Ù ÀÛ´Ù¸é b Ãâ·Â a¿Í b°¡ °°´Ù¸é 0À» Ãâ·Â System.out.println( a > b / a
+		 * aê°€ bë³´ë‹¤ í¬ë‹¤ë©´ a ì¶œë ¥ aê°€ bë³´ë‹¤ ìž‘ë‹¤ë©´ b ì¶œë ¥ aì™€ bê°€ ê°™ë‹¤ë©´ 0ì„ ì¶œë ¥ System.out.println( a > b / a
 		 * : (a < b ? b : 0) ) ;
 		 */
 

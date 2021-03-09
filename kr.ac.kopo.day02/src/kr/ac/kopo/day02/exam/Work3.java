@@ -7,103 +7,103 @@ public class Work3 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("¹°°Ç°ªÀ» ÀÔ·Â :");
+		System.out.print("ë¬¼ê±´ê°’ì„ ì…ë ¥ :");
 		int num = sc.nextInt();
-		System.out.print("ÁöºÒÇÑ ¾×¼ö¸¦ ÀÔ·Â :");
+		System.out.print("ì§€ë¶ˆí•œ ì•¡ìˆ˜ë¥¼ ì…ë ¥ :");
 		int num2 = sc.nextInt();
-		// ¹æ½Ä 1
+		// ë°©ì‹ 1
 		if (num2 >= num) {
-			System.out.println("<¹æ½Ä1>");
-			System.out.printf("°Å½º¸§µ· : %d¿ø\n", num2 - num);
+			System.out.println("<ë°©ì‹1>");
+			System.out.printf("ê±°ìŠ¤ë¦„ëˆ : %dì›\n", num2 - num);
 
 			int num3 = num2 - num;
 
 			if (num3 / 1000 == 0) {
-				System.out.printf("1000¿ø : 0\n");
+				System.out.printf("1000ì› : 0\n");
 			} else {
-				// ¸ò
-				System.out.printf("1000¿ø : %d\n", num3 / 1000);
+				// ëª«
+				System.out.printf("1000ì› : %d\n", num3 / 1000);
 
 				num3 = num3 % 1000;
 
 			}
 
 			if (num3 / 500 == 0) {
-				System.out.printf("500¿ø : 0\n");
+				System.out.printf("500ì› : 0\n");
 			} else {
-				// ¸ò
-				System.out.printf("500¿ø : %d\n", num3 / 500);
+				// ëª«
+				System.out.printf("500ì› : %d\n", num3 / 500);
 
 				num3 = num3 % 500;
 			}
 
 			if (num3 / 500 == 0) {
-				System.out.printf("500¿ø : 0\n");
+				System.out.printf("500ì› : 0\n");
 			} else {
-				// ¸ò
-				System.out.printf("500¿ø : %d\n", num3 / 500);
+				// ëª«
+				System.out.printf("500ì› : %d\n", num3 / 500);
 
 				num3 = num3 % 500;
 			}
 
 			if (num3 / 50 == 0) {
-				System.out.printf("50¿ø : 0\n");
+				System.out.printf("50ì› : 0\n");
 			} else {
-				// ¸ò
-				System.out.printf("50¿ø : %d\n", num3 / 50);
+				// ëª«
+				System.out.printf("50ì› : %d\n", num3 / 50);
 
 				num3 = num3 % 50;
 			}
 
 			if (num3 / 10 == 0) {
-				System.out.printf("10¿ø : 0\n");
+				System.out.printf("10ì› : 0\n");
 			} else {
-				// ¸ò
-				System.out.printf("10¿ø : %d\n", num3 / 10);
+				// ëª«
+				System.out.printf("10ì› : %d\n", num3 / 10);
 
 				num3 = num3 % 10;
 			}
-			System.out.println("<¹æ½Ä2>");
-			System.out.printf("°Å½º¸§µ· : %d¿ø\n", num2 - num);
+			System.out.println("<ë°©ì‹2>");
+			System.out.printf("ê±°ìŠ¤ë¦„ëˆ : %dì›\n", num2 - num);
 
 			num3 = num2 - num;
 
 			if (num3 / 1000 != 0) {
-				// ¸ò
-				System.out.printf("1000¿ø : %d\n", num3 / 1000);
+				// ëª«
+				System.out.printf("1000ì› : %d\n", num3 / 1000);
 
 				num3 = num3 % 1000;
 			}
-			// ¹æ½Ä2
+			// ë°©ì‹2
 			if (num3 / 500 != 0) {
-				// ¸ò
-				System.out.printf("500¿ø : %d\n", num3 / 500);
+				// ëª«
+				System.out.printf("500ì› : %d\n", num3 / 500);
 
 				num3 = num3 % 500;
 			}
 
 			if (num3 / 100 != 0) {
-				// ¸ò
-				System.out.printf("100¿ø : %d\n", num3 / 100);
+				// ëª«
+				System.out.printf("100ì› : %d\n", num3 / 100);
 
 				num3 = num3 % 100;
 			}
 
 			if (num3 / 50 != 0) {
-				// ¸ò
-				System.out.printf("50¿ø : %d\n", num3 / 50);
+				// ëª«
+				System.out.printf("50ì› : %d\n", num3 / 50);
 
 				num3 = num3 % 50;
 			}
 			if (num3 / 10 != 0) {
-				// ¸ò
-				System.out.printf("10¿ø : %d\n", num3 / 10);
+				// ëª«
+				System.out.printf("10ì› : %d\n", num3 / 10);
 
 				num3 = num3 % 10;
 			}
 
 		} else {
-			System.out.printf("%d¿øÀÌ ºÎÁ·ÇÕ´Ï´Ù.\n", num - num2);
+			System.out.printf("%dì›ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.\n", num - num2);
 
 		}
 	}

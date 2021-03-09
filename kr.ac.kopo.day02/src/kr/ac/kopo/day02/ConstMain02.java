@@ -6,21 +6,21 @@ public class ConstMain02 {
 		
 		char ch = 'A';
 		
-		ch = 65; 			// ¹®ÀÚÇü 65 = À¯´ÏÄÚµå 65 = 'A'
+		ch = 65; 			// ë¬¸ìí˜• 65 = ìœ ë‹ˆì½”ë“œ 65 = 'A'
 		
-//		ch = '\u0041' ; 	// A // À¯´ÏÄÚµåÀÇ ¹®ÀÚ¸¦ ÀÌ¿ëÇÏ°Ú´Ù.
-//					   		// À¯´ÏÄÚµå´Â 16Áø¼ö ÇüÅÂ·Î »ç¿ëµÊ 
+//		ch = '\u0041' ; 	// A // ìœ ë‹ˆì½”ë“œì˜ ë¬¸ìë¥¼ ì´ìš©í•˜ê² ë‹¤.
+//					   		// ìœ ë‹ˆì½”ë“œëŠ” 16ì§„ìˆ˜ í˜•íƒœë¡œ ì‚¬ìš©ë¨ 
 //		
-//		ch = '\uAC00' ; // °¡ 
+//		ch = '\uAC00' ; // ê°€ 
 		 
 		System.out.println(ch);
-		System.out.println((int)ch);			// Çüº¯È¯
+		System.out.println((int)ch);			// í˜•ë³€í™˜
 		
 		
 		int code = ch ;
 		
 		System.out.println(code);
-		System.out.println("¹®ÀÚ : " + ch);
+		System.out.println("ë¬¸ì : " + ch);
 		
 		System.out.println("" + 'A' + 'b');
 		

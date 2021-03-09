@@ -1,14 +1,14 @@
 package kr.ac.kopo.day02;
 
-// ÀÚµ¿ import : ctrl + shift + o 
+// ìžë™ import : ctrl + shift + o 
 import java.util.Scanner;
 
 /*
- * Á¤¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä : 12
- * 12ÀÇ Â¦¼öÀ¯¹« : true
+ * ì •ìˆ˜ë¥¼ ìž…ë ¥í•˜ì„¸ìš” : 12
+ * 12ì˜ ì§ìˆ˜ìœ ë¬´ : true
  * 
- * Á¤¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä : 5
- * 5ÀÇ Â¦¼öÀ¯¹« : false
+ * ì •ìˆ˜ë¥¼ ìž…ë ¥í•˜ì„¸ìš” : 5
+ * 5ì˜ ì§ìˆ˜ìœ ë¬´ : false
  */
 
 public class OperationMain03 {
@@ -17,18 +17,18 @@ public class OperationMain03 {
 	
 	public static void main(String[] args) {
 		
-		Scanner sc = new Scanner(System.in);     // System.in : ÀÔ·ÂÀåÄ¡(Å°º¸µå¸¦ ÅëÇØ¼­)
+		Scanner sc = new Scanner(System.in);     // System.in : ìž…ë ¥ìž¥ì¹˜(í‚¤ë³´ë“œë¥¼ í†µí•´ì„œ)
 		
-		// "Á¤¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä : " ¹®ÀåÀ» Ãâ·Â
-		System.out.print("Á¤¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+		// "ì •ìˆ˜ë¥¼ ìž…ë ¥í•˜ì„¸ìš” : " ë¬¸ìž¥ì„ ì¶œë ¥
+		System.out.print("ì •ìˆ˜ë¥¼ ìž…ë ¥í•˜ì„¸ìš” : ");
 		
-		// Å°º¸µå·Î Á¤¼ö¸¦ ÀÔ·Â
+		// í‚¤ë³´ë“œë¡œ ì •ìˆ˜ë¥¼ ìž…ë ¥
 		int num = sc.nextInt();
 		
-		// °á°ú¸¦ Ãâ·Â
-		boolean result = (num > 0 && num % 2 == 0) ;  // ( ) »ý·«°¡´É why? ÄÄÇ»ÅÍ´Â ¾Õ¿¡ 2°³ÀÇ Ç×ºÎÅÍ °è»êÀ» ÇÏ±â ¶§¹®¿¡ ¼ø¼­¿¡ »ó°üÀÌ ¾ø´Ù.
-													// 0 ÀÌÇÏ´Â false
-		System.out.println(num + "ÀÇÂ¦¼ö À¯¹« : " + result);
+		// ê²°ê³¼ë¥¼ ì¶œë ¥
+		boolean result = (num > 0 && num % 2 == 0) ;  // ( ) ìƒëžµê°€ëŠ¥ why? ì»´í“¨í„°ëŠ” ì•žì— 2ê°œì˜ í•­ë¶€í„° ê³„ì‚°ì„ í•˜ê¸° ë•Œë¬¸ì— ìˆœì„œì— ìƒê´€ì´ ì—†ë‹¤.
+													// 0 ì´í•˜ëŠ” false
+		System.out.println(num + "ì˜ì§ìˆ˜ ìœ ë¬´ : " + result);
 		
 	}	
 

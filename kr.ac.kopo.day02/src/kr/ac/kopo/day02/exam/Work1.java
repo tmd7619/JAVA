@@ -8,25 +8,25 @@ public class Work1 {
 		
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("Ã¹¹øÂ° Á¤¼ö :");
+		System.out.print("ì²«ë²ˆì§¸ ì •ìˆ˜ :");
 		int num = sc.nextInt();
-		System.out.print("µÎ¹øÂ° Á¤¼ö :");
+		System.out.print("ë‘ë²ˆì§¸ ì •ìˆ˜ :");
 		int num2 = sc.nextInt();
 		
 		int result1 = num + num2;
-		System.out.println(num+"¿Í"+num2+ "ÀÇ ÇÕ : " + result1);
+		System.out.println(num+"ì™€"+num2+ "ì˜ í•© : " + result1);
 		
 		int result2 = num - num2;
-		System.out.println(num+"¿Í"+num2+ "ÀÇ Â÷ : " + result2);
+		System.out.println(num+"ì™€"+num2+ "ì˜ ì°¨ : " + result2);
 		
 		int result3 = num * num2;
-		System.out.println(num+"¿Í"+num2+ "ÀÇ °ö : " + result3);
-		// 0ÀÏ¶§  if Ãß°¡ÇÏ±â 
+		System.out.println(num+"ì™€"+num2+ "ì˜ ê³± : " + result3);
+		// 0ì¼ë•Œ  if ì¶”ê°€í•˜ê¸° 
 		int result4 = num / num2;
-		System.out.printf("%d¿Í%dÀÇ ³ª¸ÓÁö : %.2f\n" ,num,num2,(double)result4);
+		System.out.printf("%dì™€%dì˜ ë‚˜ë¨¸ì§€ : %.2f\n" ,num,num2,(double)result4);
 		
 		int result5 = num % num2;
-		System.out.println(num+"¿Í"+num2+ "ÀÇ ¸ò : " + result5);
+		System.out.println(num+"ì™€"+num2+ "ì˜ ëª« : " + result5);
 				
 	}
 

@@ -8,12 +8,12 @@ public class Work2 {
 		
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("¹İÁö¸§À» ÀÔ·Â :");
+		System.out.print("ë°˜ì§€ë¦„ì„ ì…ë ¥ :");
 		int num = sc.nextInt();
 		
 		final double pie = 3.14 ;
 		
-		System.out.println("¹İÁö¸§ÀÌ "+num+"ÀÌ¸é, ¿øµÑ·¹´Â"+2*num*pie+"ÀÌ°í,¿ø³ĞÀÌ´Â"+num*num*pie);
+		System.out.println("ë°˜ì§€ë¦„ì´ "+num+"ì´ë©´, ì›ë‘˜ë ˆëŠ”"+2*num*pie+"ì´ê³ ,ì›ë„“ì´ëŠ”"+num*num*pie);
 	}
 
 }

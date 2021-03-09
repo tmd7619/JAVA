@@ -9,9 +9,9 @@ public class OperationMain02 {
 		
 		System.out.println("bool : " + bool);
 		 
-		System.out.println("a  : " + a +  ", b : " + b + ", c : " + c); // c °ªÀÌ 0ÀÎ ÀÌÀ¯? 
-																		// ¾ÕÀÇ &&¿¬»êÀÚ°¡ Fasle°¡ ³ª¿Ô±â ¶§¹®¿¡, µÚ¿¡ ¿¬»êÀº ½ÇÇàÀ» ÇÏÁö ¾ÊÀ½
-																		// µû¶ó¼­ ++c°¡ ¾Æ´Ñ  c °ªÀÌ Ãâ·Â	
+		System.out.println("a  : " + a +  ", b : " + b + ", c : " + c); // c ê°’ì´ 0ì¸ ì´ìœ ? 
+																		// ì•ì˜ &&ì—°ì‚°ìê°€ Fasleê°€ ë‚˜ì™”ê¸° ë•Œë¬¸ì—, ë’¤ì— ì—°ì‚°ì€ ì‹¤í–‰ì„ í•˜ì§€ ì•ŠìŒ
+																		// ë”°ë¼ì„œ ++cê°€ ì•„ë‹Œ  c ê°’ì´ ì¶œë ¥	
 		
 		
 		boolean bool2 = a++ > 0 || b++ > 0 || c++ > 0; 
@@ -21,9 +21,9 @@ public class OperationMain02 {
 		System.out.println("a  : " + a +  ", b : " + b + ", c : " + c); // bool : true , a = 2, b  = -1 , c = 0
 		
 		
-		boolean bool3 = a++ > 0 || b++ > 0 && c++ > 0;   				// ±³ÁıÇÔÀÌ ÇÕÁıÇÕº¸´Ù ¿ì¼±¼øÀ§°¡ ³ô´Ù
+		boolean bool3 = a++ > 0 || b++ > 0 && c++ > 0;   				// êµì§‘í•¨ì´ í•©ì§‘í•©ë³´ë‹¤ ìš°ì„ ìˆœìœ„ê°€ ë†’ë‹¤
 		
-		System.out.println("bool : " + bool3);							// °è»êÀº ¿ŞÂÊºÎÅÍÁö¸¸, ³í¸® ´ÜÀ§°¡ a++ > 0 || (b++ > 0 && c++ > 0)·Î ¹­ÀÎ´Ù.
+		System.out.println("bool : " + bool3);							// ê³„ì‚°ì€ ì™¼ìª½ë¶€í„°ì§€ë§Œ, ë…¼ë¦¬ ë‹¨ìœ„ê°€ a++ > 0 || (b++ > 0 && c++ > 0)ë¡œ ë¬¶ì¸ë‹¤.
 		 
 		System.out.println("a  : " + a +  ", b : " + b + ", c : " + c);	// bool : true , a = 2 , b = -1 c = 0
 		
