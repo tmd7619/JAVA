@@ -4,19 +4,27 @@ import java.util.Scanner;
 
 public class Work4 {
 	public static void main(String[] args) {
-		
+
 		Scanner sc = new Scanner(System.in);
 
-		System.out.print("Ã¹¹øÂ° Á¤¼ö¸¦ ÀÔ·Â :");
+		System.out.print("ì²«ë²ˆì§¸ ì •ìˆ˜ë¥¼ ì…ë ¥ :");
 		int num = sc.nextInt();
-		System.out.print("µÎ¹øÂ° Á¤¼ö¸¦ ÀÔ·Â :");
+		System.out.print("ë‘ë²ˆì§¸ ì •ìˆ˜ë¥¼ ì…ë ¥ :");
 		int num2 = sc.nextInt();
+
+		// ifêµ¬ë¬¸
 		
-		if (num % num2 == 0) {
-			System.out.printf("%d°¡ %dÀÇ ¹è¼öÀÎÁö ÆÇ´Ü°á°ú : ",num, num2);
+		if (num2 == 0) {
+
+			System.out.printf("%dê°€ %dì˜ ë°°ìˆ˜ì¸ì§€ íŒë‹¨ê²°ê³¼ : false\n", num, num2);
+			
+		} else if (num % num2 == 0 && num2 != 0){
+			System.out.printf("%dê°€ %dì˜ ë°°ìˆ˜ì¸ì§€ íŒë‹¨ê²°ê³¼ : true\n", num, num2);
+			System.out.printf("%dê°€ %dì˜ ë°°ìˆ˜ì¸ì§€ íŒë‹¨ê²°ê³¼ : ì°¸\n", num, num2);
+		} else {
+			System.out.printf("%dê°€ %dì˜ ë°°ìˆ˜ì¸ì§€ íŒë‹¨ê²°ê³¼ : false\n", num, num2);
+
 		}
-		
-		
-		
+
 	}
 }

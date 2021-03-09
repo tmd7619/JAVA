@@ -3,8 +3,8 @@ package kr.ac.kopo.day02;
 import java.util.Scanner;
 
 /*
- * ÁÁ¾ÆÇÏ´Â °ÔÀıÀ» ÀÔ·Â : spring
- * º½Àº 3¿ù ~ 5¿ù±îÁöÀÔ´Ï´Ù
+ * ì¢‹ì•„í•˜ëŠ” ê²Œì ˆì„ ì…ë ¥ : spring
+ * ë´„ì€ 3ì›” ~ 5ì›”ê¹Œì§€ì…ë‹ˆë‹¤
  */
 
 
@@ -13,27 +13,27 @@ public class SwitchMain02 {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		System.out.print("ÁÁ¾ÆÇÏ´Â °ÔÀıÀ» ÀÔ·Â : ");
+		System.out.print("ì¢‹ì•„í•˜ëŠ” ê²Œì ˆì„ ì…ë ¥ : ");
 		String season = sc.nextLine();
 		
 		System.out.println(season);
 		
-		if(season.equals("spring")) {					// °´Ã¼ ÂüÁ¶ÇüÀº µ¿µîºñ±³°¡ ¾ÈµÊ. == x
-			System.out.println("º½Àº 3¿ù¿¡¼­ 5¿ù±îÁöÀÔ´Ï´Ù.");
+		if(season.equals("spring")) {					// ê°ì²´ ì°¸ì¡°í˜•ì€ ë™ë“±ë¹„êµê°€ ì•ˆë¨. == x
+			System.out.println("ë´„ì€ 3ì›”ì—ì„œ 5ì›”ê¹Œì§€ì…ë‹ˆë‹¤.");
 		}else if(season.equals("summer")) {
-			System.out.println("¿©¸§Àº 6¿ù¿¡¼­ 8¿ù±îÁöÀÔ´Ï´Ù.");
+			System.out.println("ì—¬ë¦„ì€ 6ì›”ì—ì„œ 8ì›”ê¹Œì§€ì…ë‹ˆë‹¤.");
 		}else {
-			System.out.println("error");				// if ±¸¹®À¸·Î ¸¸µé±â¿¡´Â º¹ÀâÇÏ±â ¶§¹®¿¡ switch ±¸¹®À¸·Î ¸¸µå´Â°Ô ÁÁ´Ù.
+			System.out.println("error");				// if êµ¬ë¬¸ìœ¼ë¡œ ë§Œë“¤ê¸°ì—ëŠ” ë³µì¡í•˜ê¸° ë•Œë¬¸ì— switch êµ¬ë¬¸ìœ¼ë¡œ ë§Œë“œëŠ”ê²Œ ì¢‹ë‹¤.
 		}
 		
 		switch(season) {
-		case "spring" :					// ÄÉÀÌ½º ¿©·¯°³ »ç¿ë °¡´É
+		case "spring" :					// ì¼€ì´ìŠ¤ ì—¬ëŸ¬ê°œ ì‚¬ìš© ê°€ëŠ¥
 		case "SPRING" :
-		case "º½" :
-			System.out.println("º½Àº 3¿ù¿¡¼­ 5¿ù");
+		case "ë´„" :
+			System.out.println("ë´„ì€ 3ì›”ì—ì„œ 5ì›”");
 			break;
 		case "summer" :
-			System.out.println("¿©¸§Àº 6¿ù ~ 8¿ù");
+			System.out.println("ì—¬ë¦„ì€ 6ì›” ~ 8ì›”");
 			break;
 		default :
 			System.out.println("Error");
