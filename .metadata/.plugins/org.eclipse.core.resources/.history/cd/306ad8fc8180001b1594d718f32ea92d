@@ -1,0 +1,33 @@
+package kr.ac.kopo.day02;
+
+// 자동 import : ctrl + shift + o 
+import java.util.Scanner;
+
+/*
+ * 정수를 입력하세요 : 12
+ * 12의 짝수유무 : true
+ * 
+ * 정수를 입력하세요 : 5
+ * 5의 짝수유무 : false
+ */
+
+public class OperationMain03 {
+	
+
+	
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);     // System.in : 입력장치(키보드를 통해서)
+		
+		// "정수를 입력하세요 : " 문장을 출력
+		System.out.print("정수를 입력하세요 : ");
+		
+		// 키보드로 정수를 입력
+		int num = sc.nextInt();
+		
+		// 결과를 출력
+		System.out.println(num + "짝수 유무 : ");
+		
+	}	
+
+}

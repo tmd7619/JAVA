@@ -1,0 +1,20 @@
+package kr.ac.kopo.day02;
+
+public class IFMain01 {
+
+	public static void main(String[] args) {
+
+		int a = 10, b = 5;
+
+		System.out.println("MAX : " + (a > b ? a : b)); // 삼항연산자
+
+		if (a > b) {								// ctrl + Shift + f : 자동정렬
+			System.out.println("Max : " + a);
+		} else {
+			System.out.println("Max : " + b);
+
+		}
+
+	}
+
+}

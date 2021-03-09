@@ -1,0 +1,21 @@
+package kr.ac.kopo.day02;
+
+public class ConstMain02 {
+
+	public static void main(String[] args) {
+		
+		char ch = 'A';
+		
+		ch = 65; 
+		
+		ch = '\u' ;    // 유니코드의 문자를 이용하겠다.
+					   // 유니코드는 16진수으로 사용해야됨.
+		
+		
+		System.out.println("문자 : " + ch);
+		
+		System.out.println("" + 'A' + 'b');
+		
+		
+	}
+}
