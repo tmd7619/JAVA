@@ -1,0 +1,19 @@
+package kr.ac.kopo.day03.exem;
+
+/*
+*	6)
+*	*********
+*   -*******-
+*   --*****--
+*	---***---
+*	----*----
+*/
+
+public class ExamMain6 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

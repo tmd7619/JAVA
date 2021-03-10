@@ -24,7 +24,7 @@ public class LoopMain02 {
 			System.out.println("------------2----------------");
 
 			for (int i02 = 1; i02 <= 3; ++i02) {
-				for (int j = 1; j <= 5; ++j) {
+				for (int j = 1; j <= 5; j++) {
 					System.out.print("*");
 				}
 
