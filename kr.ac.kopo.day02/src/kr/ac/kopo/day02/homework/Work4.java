@@ -29,9 +29,10 @@ public class Work4 {
 		// 조건연산자
 		
 		System.out.println("정수 " + num + "이" + num2 + "의 배수 여부 판단 :" 
-				+ (num2 > 0 && num % num2 == 0 ) );
-		System.out.println("정수 " + num + "이" + num2 + "의 배수 여부 판단 :" 
-				+ (num2 > 0 && num % num2 == 0 ? "참" : "거짓" ) );
+				+ (num2 > 0 && num % num2 == 0 ) ); 							// num > 0 : 0보다 크다는 조건이 먼저 나와야 적용됨.
+		System.out.println("정수 " + num + "이" + num2 + "의 배수 여부 판단 :"  // 만약에  뒤로 보냈는데 오류가 안나면, 쓸필요가 없는 것
+				+ (num2 > 0 && num % num2 == 0 ? "참" : "거짓" ) ); 
 
+		
 	}
 }
