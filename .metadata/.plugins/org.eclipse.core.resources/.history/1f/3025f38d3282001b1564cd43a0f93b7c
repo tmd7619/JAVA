@@ -1,0 +1,29 @@
+package kr.ac.kopo.day04;
+
+public class ArrayMain04 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String[] strArr = {"폴리텍", "데이터분석", "자바"};
+		System.out.println("strArr : " + strArr);
+		
+		System.out.println("배열의 크기 : "+ strArr.length );
+		
+		System.out.println("첫번째 문자열 : " + strArr[0] );
+		System.out.println("두번째 문자열 : " + strArr[1] );
+		System.out.println("세번째 문자열 : " + strArr[2] );
+		
+		for(int i = 0 ; i <3 ; i++) {
+			System.out.println(i+ "번째 문자열 : "+strArr[i]); // index를 이용한 출력
+		}
+		
+		System.out.println("<2 방식>");
+		for(String str : strArr) {
+			System.out.println(str);
+			
+		}
+	
+	}
+
+}

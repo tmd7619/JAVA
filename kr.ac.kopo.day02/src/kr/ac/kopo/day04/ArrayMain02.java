@@ -1,5 +1,7 @@
 package kr.ac.kopo.day04;
 
+import java.util.Arrays;
+
 public class ArrayMain02 {
 
 	public static void main(String[] args) {
@@ -31,7 +33,11 @@ public class ArrayMain02 {
 		 * 배열의 전체 요소를 출력하는 방식 3가지
 		 * 
 		 * 1. 인덱스를 이용한 출력
+		 * 
 		 * 2. 1.5버전의 for문을 이용한 출력 
+		 * 
+		 * 3. java.util.Arrays.toString() 메소드를 이용한 출력 
+		 *  
 		 */
 		
 		System.out.println("< 방식 1 >");
@@ -46,6 +52,10 @@ public class ArrayMain02 {
 			
 		}
 		System.out.println();
+		
+		System.out.println("< 방식 3 >");
+		System.out.println(Arrays
+				.toString(arr));
 	}
 
 }
