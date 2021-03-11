@@ -1,0 +1,12 @@
+package kr.ac.kopo.day04;
+
+public class ArrayMain04 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String[] strArr = {"폴리텍", "데이터분석", "자바"};
+		System.out.println("strArr : ", strArr);
+	}
+
+}

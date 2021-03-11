@@ -1,0 +1,24 @@
+package kr.ac.kopo.day04;
+
+public class ArrayMain01 {
+
+/*
+* 
+*	배열 : 같은 시공간에 연속적으로 저장된 자료구조집합
+* 	배열은 객체로 취급 ( new로 생성함)
+* 	각 변수의 접근은 주소값을 통해 알아낸다
+* 	arr: 주소값을 기억하는 참조변수
+* 
+*/ 
+	
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int[] prime;
+		prime = new int[10];
+		System.out.println(prime);
+	}
+
+}
