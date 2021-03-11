@@ -1,0 +1,47 @@
+package kr.ac.kopo.day03.exem;
+
+
+/*	5)
+*	*****
+*	-****
+*	--***
+*   ---**
+*   ----*
+*   ---**
+*   --***
+*   -****  
+*	*****
+*/
+
+public class ExamMain5 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//5
+		for(int i = 0; i <= 8 ; i++) {
+			if(i<5) {
+				//별
+				for(int space = 1; space<= i ; space++ ) {	
+					System.out.print(" ");
+				}	
+				for(int j=4 ; j>=i ; j--){
+					System.out.print("*");
+				}
+				
+				
+			} else { // i = 6부터 시작 6,7,8,9
+				for(int space = 4; space>i; space--  ) {
+					System.out.print(" ");
+				}
+				for(int j = 0 ; j<=i;j++) {
+					System.out.print("*");
+				}
+				
+			}
+			System.out.println();
+			
+		}
+	}
+
+}

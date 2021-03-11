@@ -1,0 +1,21 @@
+package kr.ac.kopo.day03;
+
+/*
+ * *****
+ * *****
+ * *****
+ * 
+ */
+
+
+public class LoopMain02 {
+
+	public static void main(String[] args) {
+		
+		int cnt = 1;
+		while(cnt <= 3) {
+			System.out.println("*****");
+			++cnt;
+		}
+	}
+}

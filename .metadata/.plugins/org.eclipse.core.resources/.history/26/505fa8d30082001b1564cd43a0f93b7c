@@ -1,0 +1,25 @@
+package kr.ac.kopo.day03.exem;
+
+
+/*	5)
+*	*****
+*	-****
+*	--***
+*   ---**
+*   ----*
+*   ---**
+*   --***
+*   -****  
+*	*****
+*/
+
+public class ExamMain5_3 {
+
+	public static void main(String[] args) {
+		
+		
+		for(int i =1 ; i <= 9 ; i++) {
+			System.out.println();
+		}
+	}
+}
