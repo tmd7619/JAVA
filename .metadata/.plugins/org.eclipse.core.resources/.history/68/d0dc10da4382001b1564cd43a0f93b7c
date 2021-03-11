@@ -17,19 +17,7 @@ public class HomeWork03 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int sum = 0;
-		for(int i = 0 ; i <=100; i ++) {
-			if(i<50) {
-				for(int j = 0; j<=i; j++) {
-					sum += 2*j;
-					
-					System.out.println("["+j+"시간후] 달팽이가 올라간 총 높이 : " );
-				}
-			}else {
-				
-			}
-		}
-		
+
 		
 		
 	}
