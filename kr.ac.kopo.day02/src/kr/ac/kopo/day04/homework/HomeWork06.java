@@ -33,7 +33,7 @@ public class HomeWork06 {
 		int[]arr = new int[10];
 		
 		for(int i = 0 ; i < arr.length; i++) {
-			System.out.print(i+1+"번째 정수를 입력 : ");
+			System.out.println(i+1+"번째 정수를 입력 : ");
 			int num = sc.nextInt();
 			arr[i] = num;
 			
