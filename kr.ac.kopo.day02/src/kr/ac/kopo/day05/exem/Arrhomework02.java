@@ -36,19 +36,35 @@ public class Arrhomework02 {
 		int num = sc.nextInt(); // arr 짝수 개수
 		System.out.println("홀수 몇개 입력 :");
 		int num2 = sc.nextInt(); // arr 홀수 개수
-		int[] arr = new int[num+num2];
+		int[] arr = new int[num+num2]; // 0 번째 ~ num+num2-1
 		
-		for(int i = 1 ; i <= arr.length ; i++) {
+		int a = 0, b= 0, i = 1;
+		
+		while(a <= num && b <= num2) {
 			System.out.println("num"+i +" : ");
 			int num3 = sc.nextInt();
-			if(num3 % 2==0 && i<=num) {
-				arr[i-1]=num3;
-				} else if(num3 % 2 !=0 && i<=num2){
-					arr[arr.length-i] = num3;
-					
-				}
+			if(num3 % 2 ==0) {		 // 짝수
+				arr[i-1] = num3;
+				i++;
+				a++;
+			} else { 				// 홀수
+				
 			}
-			
+		}
+	
+		
+		
+//		for(int i = 1 ; i <= arr.length ; i++) {
+//			System.out.println("num"+i +" : ");
+//			int num3 = sc.nextInt();
+//			if(num3 % 2==0 && i<=num) {
+//				arr[i-1]=num3;
+//				} else if(num3 % 2 !=0 && i<=num2){
+//					arr[arr.length-i] = num3;
+//					
+//				}
+//			}
+//			
 			System.out.println(Arrays.toString(arr));
 				
 		
