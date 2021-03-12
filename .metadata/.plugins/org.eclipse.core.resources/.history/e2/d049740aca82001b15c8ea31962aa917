@@ -1,0 +1,18 @@
+package kr.ac.kopo.day04.homework.t;
+
+import java.util.Random;
+public class HomeworkMain02 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		Random r = new Random();
+		//  1 ~ 100 사이의 정수를 4개 추출
+		
+		int num = r.nextInt(100);
+		System.out.println(num);
+		
+	}
+
+}
