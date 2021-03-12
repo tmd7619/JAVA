@@ -12,6 +12,18 @@ public class HomeworkMain04 {
 		System.out.println("정수를 입력하세요 : ");
 		int num = sc.nextInt();
 		
+		int i = 2;
+		while(i <= num-1 && num % i != 0) {
+			i++;	
+		}
+		if(i == num) {
+			System.out.println(num + " : 소수입니다");
+		} else {
+			System.out.println(num + " : 소수가 아닙니다");
+		}
+		
+		
+		/*
 		boolean bool = true ; 
 		for(int i = 2; i <= num/2; i ++) {
 			if(num % i == 0) {
@@ -24,7 +36,7 @@ public class HomeworkMain04 {
 		}else {
 			System.out.println(num + " : 소수가 아닙니다");
 		}
-		
+		*/
 			
 		/*
 //		1과 자기자신의 정수를 제외한 약수개수 구하기(소수는 약수 0개)
