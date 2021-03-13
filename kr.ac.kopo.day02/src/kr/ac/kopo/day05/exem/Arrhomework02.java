@@ -31,44 +31,43 @@ public class Arrhomework02 {
 		// TODO Auto-generated method stub
 
 		Scanner sc = new Scanner(System.in);
-		
+
 		System.out.println("짝수 몇개 입력 :");
 		int num = sc.nextInt(); // arr 짝수 개수
 		System.out.println("홀수 몇개 입력 :");
 		int num2 = sc.nextInt(); // arr 홀수 개수
-		int[] arr = new int[num+num2]; // 0 번째 ~ num+num2-1
-		
-		int a = 0, b= 0, i = 1;
-		
-		while(a <= num && b <= num2) {
-			System.out.println("num"+i +" : ");
-			int num3 = sc.nextInt();
-			if(num3 % 2 ==0) {		 // 짝수
-				arr[i-1] = num3;
-				i++;
-				a++;
-			} else { 				// 홀수
-				
+
+		int[] a = new int[num]; // 짝수배열
+		int[] b = new int[num2]; // 홀수배열
+		int[] arr = new int[a.length + b.length];
+
+		int idx = 0;
+		int idx2 = 0;
+		int i = 1;
+
+		while (i <= num + num2) {
+			System.out.println("num" + i + " : ");
+			int num3 = sc.nextInt(); // 정수 입력받기
+
+			if (num3 % 2 == 0) { // 짝수
+				if (idx + 1 > num) {
+					continue;
+				}
+				a[idx] = num3;
+				idx++;
+
+			} else { // 홀수
+				if (idx2 + 1 > num2) {
+					continue;
+				}
+				b[idx2] = num3;
+				idx2++;
 			}
+			i++;
 		}
-	
-		
-		
-//		for(int i = 1 ; i <= arr.length ; i++) {
-//			System.out.println("num"+i +" : ");
-//			int num3 = sc.nextInt();
-//			if(num3 % 2==0 && i<=num) {
-//				arr[i-1]=num3;
-//				} else if(num3 % 2 !=0 && i<=num2){
-//					arr[arr.length-i] = num3;
-//					
-//				}
-//			}
-//			
-			System.out.println(Arrays.toString(arr));
-				
-		
+		System.arraycopy(a, 0, arr, 0, a.length);
+		System.arraycopy(b, 0, arr, a.length, b.length);
+		System.out.println("<PRINT>");
+		System.out.println(Arrays.toString(arr));
 	}
 }
-
-
