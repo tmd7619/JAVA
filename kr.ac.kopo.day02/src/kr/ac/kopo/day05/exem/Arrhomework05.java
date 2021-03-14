@@ -72,8 +72,6 @@ public class Arrhomework05 {
 			for(int j = 0 ; j < (line-z); j++) {
 				System.out.print((j<z)?" ": "*");
 			}
-			
-
 			if(i<star-2) {
 				z++;
 			}else {
