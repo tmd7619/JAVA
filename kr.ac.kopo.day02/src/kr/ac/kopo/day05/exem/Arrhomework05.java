@@ -53,7 +53,7 @@ public class Arrhomework05 {
 		System.out.println();
 		System.out.println();
 
-		int star = line / 2 ;		// 별의 개수가 변하는 지점(중간)
+		int star = line / 2+1 ;		// 별의 개수가 변하는 지점(중간)
 		for (int i = 0; i < line; i++) {		// 2번그림
 			for (int j = 0; j < star; j++) {
 				System.out.print("*");
@@ -68,5 +68,21 @@ public class Arrhomework05 {
 		System.out.println();
 		System.out.println();
 		System.out.println();
+		for(int i = 0,z=0; i < line; i++) {		// 3번그림
+			for(int j = 0 ; j < (line-z); j++) {
+				System.out.print((j<z)?" ": "*");
+			}
+			
+
+			if(i<star-2) {
+				z++;
+			}else {
+				z--;
+			}
+			
+			System.out.println();
+		}
+		
+		
 	}
 }
