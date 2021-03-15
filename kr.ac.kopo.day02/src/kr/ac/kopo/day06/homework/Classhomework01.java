@@ -42,12 +42,11 @@ public class Classhomework01 {
 		
 		System.out.print("아이스크림 몇개 구입할꺼야? : ");
 		int num = sc.nextInt();
+		sc.nextLine();						//입력버퍼 지우기
 		Icecream[] iceArr = new Icecream[num];
 		
-		sc.nextLine();						//입력버퍼 지우기
-		
 		for(int i = 0; i < num; i ++) {
-			iceArr[i] = new Icecream();
+			iceArr[i] = new Icecream();		// 인스턴스 객체 생성
 			System.out.println("*** "+(i+1)+"번째 아이스크림 구매정보 입력 "+"***");
 			System.out.print("아이스크림명 : ");
 			String icename = sc.nextLine();
@@ -60,7 +59,7 @@ public class Classhomework01 {
 			
 		}
 		System.out.println("<총 "+num+"개의 아이스크림 구매 정보 출력>");
-		System.out.println("번호\t"+"아이스크림명\t"+"아이스크림가격");
+		System.out.println("번호\t"+"아이스크림명\t"+"\t아이스크림가격");
 		num = 0;
 		for(Icecream I : iceArr) {
 			System.out.println((num+1)+"\t"+I.name+"\t\t"+I.price);
