@@ -17,6 +17,31 @@ public class HandphoneMain {
 		hp2.phone = "010-3333-4444";
 		hp2.company = "애플";
 		
+		Handphone hp3 = new Handphone(); 
+		hp3.name = "고길동";
+		hp3.phone = "010-5555-6666";
+		hp3.company = "LG";
+		
+		
+		
+		
+		System.out.println("소유주명 : " + hp.name+ " 전화번호 : " + hp.phone + " 제조사 : " + hp.company);
+		System.out.println("소유주명 : " + hp2.name+ " 전화번호 : " + hp2.phone + " 제조사 : " + hp2.company);
+		
+		System.out.println("===========================================================");
+		
+		Handphone[] hpArr = {hp, hp2, hp3}; 	//  그림2
+		
+		for(int i = 0; i < hpArr.length;i++) {
+			System.out.println("소유주명 : " + hpArr[i].name +  " 전화번호 :  "+hpArr[i].phone + " 제조사 : "+hpArr[i].company);
+		}
+		
+		System.out.println("===========================================================");
+		
+		for(Handphone h : hpArr){
+			System.out.println("소유주명 : " + h.name +  " 전화번호 :  "+h.phone + " 제조사 : "+h.company);
+		}
+		
 	}
 
 }
