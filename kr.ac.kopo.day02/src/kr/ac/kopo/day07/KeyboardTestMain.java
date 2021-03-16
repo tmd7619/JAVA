@@ -21,11 +21,16 @@ public class KeyboardTestMain {
 		
 		
 		System.out.print("정수입력 : ");
-		int num3 = sc.nextInt();			// 정수형은 버퍼에 ln을 남기기 때문에,
+		int num3 = sc.nextInt();			//  1. 정수형은 버퍼에 ln을 남기기 때문에,
+		sc.nextLine();						// 3. nextLine은 엔터(ln)를 소비하기하기 때문에 버퍼를 제거함
+		int num5 = Integer.parseInt(sc.nextLine()); // 문자열로 입력받아서, 정수형으로 변환하는 방법도 있음
 		
-		System.out.print("문자열을 입력 : ");
+		
+		
+		System.out.print("문자열을 입력 : ");	// 2. 문자열을 입력받을 수 없게 됨 
 		String num4= sc.nextLine();
 		
+
 		
 	}
 
