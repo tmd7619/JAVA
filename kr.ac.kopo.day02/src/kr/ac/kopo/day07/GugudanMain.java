@@ -11,7 +11,7 @@ public class GugudanMain {
 		Gugudan gu = new Gugudan();	// 인스턴스 객체 생성 -> 메소드 호출하여 참조변수 gu에 넣기
 		
 		System.out.print("2 - 9 사이의 단 입력 : ");
-		int dan = sc.nextInt();
+		int dan = sc.nextInt(); 
 		sc.nextLine();				// 버퍼 비우기
 		
 		gu.print(dan);				// 입력 단 출력
