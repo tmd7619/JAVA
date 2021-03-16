@@ -32,23 +32,12 @@ public class Methodhomework01 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Icecream ice = new Icecream();
+		Icecream ice = new Icecream();		// 인스턴스 생성
+		ice.info();							
 		
-		int cnt = ice.getIce("아이스크림을 몇개 구입할래? : ");
 		
-		String[] iceArr = new String[cnt];
-		for(int i = 0 ; i < cnt; i++) {
-			iceArr[i] = ice.info(i);
-		}
 		
-		System.out.println(Arrays.toString(iceArr));
 
-		
-		
-		
-		
-//		ice.totalInfo();
-		
 	}
 
 }
