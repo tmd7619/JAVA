@@ -33,6 +33,9 @@ import java.util.Scanner;
  */
 
 
+// 버퍼를 일종의 char 배열이라고 생각하면 된다. 입력시에, 엔터 전까지 입력된 모든 것들을 버퍼에 저장함 
+
+
 public class Classhomework01 {
 
 	public static void main(String[] args) {
