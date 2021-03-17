@@ -38,8 +38,8 @@ public class Member {
 		this.name = name;			// this키워드를 이용해서 멤버변수와 지역번수를 구분시킨다.
 									// 이럴 경우에는 this를 생략하면 안된다	
 		
-		this.age = -1;				// age의 경우, 이미 생성자 안에 this를 사용했기 때문에 생략이 가능함
-		this.bloodType = "알수없음";
+		age = -1;				// age의 경우, 이미 생성자 안에 this를 사용했기 때문에 생략이 가능함
+		bloodType = "알수없음";
 	}								
 	Member(String name,int age){	
 		this(name,age,"알수없음");	// this 생성자 가장 먼저 실행되야함.

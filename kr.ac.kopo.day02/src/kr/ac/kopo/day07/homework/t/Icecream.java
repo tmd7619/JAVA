@@ -19,6 +19,9 @@ public class Icecream {
 		return iceprice;
 	}
 	
+	
+
+	
 //	void print() {
 //		int num  = 1;
 //		System.out.println(num++ +"\t"+icename+"\t"+iceprice);

@@ -21,14 +21,7 @@ public class Methodhomework02 {
 		// TODO Auto-generated method stub
 
 		Calculator ca = new Calculator();
-		
-		int num1 = ca.getCal("첫번째 정수 입력 : ");
-		int num2 = ca.getCal("두번째 정수 입력 : ");
-		
-		ca.cal(num1, num2);					// 사칙연산
-		
-		ca.cal(num1);						//  소수체크						
-		ca.cal(num2);
+		ca.cal();
 		
 	}
 

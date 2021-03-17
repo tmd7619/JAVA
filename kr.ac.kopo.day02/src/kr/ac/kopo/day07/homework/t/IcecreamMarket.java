@@ -6,6 +6,8 @@ public class IcecreamMarket {
 
 	Icecream[] iceArr; // Icecream 타입의 iceArr 배열 선언
 	Scanner sc = new Scanner(System.in);
+	
+	Icecream ice = new Icecream();			
 
 	int inputInt(String msg) { // 아이스크림 개수 및 price 입력받기
 		System.out.print(msg);
@@ -40,7 +42,7 @@ public class IcecreamMarket {
 			String name = intputString("아이스크림명 : ");
 			int price = inputInt("아이스크림 가격 : ");
 			iceArr[i] = new Icecream(); // 인스턴스 생성
-			iceArr[i].set(name, price);
+			iceArr[i].set(name, price);	// iceArr.name에 name을 , iceArr.price에 price를 대입
 
 		}
 	}

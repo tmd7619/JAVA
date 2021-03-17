@@ -8,10 +8,7 @@ public class ConstructorMain02 {
 		Member m2 = new Member("홍길동");
 		Member m3 = new Member("강길동",20);
 		Member m4 = new Member("윤길동",30,"AB");
-		
-		String n = "dfdsfsfdsfdsfsdf";
 				
-		
 		m.info();
 		m2.info();
 		m3.info();

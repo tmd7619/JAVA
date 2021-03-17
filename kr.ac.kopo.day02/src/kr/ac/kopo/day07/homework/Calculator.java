@@ -4,31 +4,53 @@ import java.util.Scanner;
 
 public class Calculator {
 	
-	void cal(int num1, int num2) {
-		System.out.println(num1 + " + " + num2 + " = "+(num1+num2));
-		System.out.println(num1 + " - " + num2 + " = "+(num1-num2));
-		System.out.println(num1 + " * " + num2 + " = "+(num1*num2));
-		System.out.println(num1 + " + " + num2 + " = "+(num1+num2));
-		System.out.println(num1 + " / " + num2 + " = "+(double)(num1/num2));
+	Scanner sc = new Scanner(System.in);
+	int firstNum;
+	int secondNum;
+	
+	void cal() {
+		getCal();
+		print();
+		check();
 	}
 	
-	void cal(int num1) {
+	void check() {
 		boolean a = true;
-		for(int i = 2 ; i < num1 ; i++ ) {
-			if(num1 % i ==0) {
+		for(int i = 2 ; i < firstNum ; i++ ) {
+			if(firstNum % i ==0) {
 				a = false;
 				break;
 			}
 		}
-		System.out.println(num1+ " 소수체크 : "+a);
+		for(int i = 2 ; i < secondNum ; i++ ) {
+			if(secondNum % i ==0) {
+				a = false;
+				break;
+			}
+		}
+		System.out.println(firstNum+ " 소수체크 : "+a);
+		System.out.println(secondNum+ " 소수체크 : "+a);
 	}
 
-	int getCal(String msg) {					
-		System.out.print(msg);
-		Scanner sc = new Scanner(System.in);
-		int num = sc.nextInt();
+	void getCal() {					
+		System.out.print("첫번째 정수 입력");
+		this.firstNum = sc.nextInt();
 		sc.nextLine();
-		return num;
+		System.out.print("두번째 정수 입력");
+		this.secondNum = sc.nextInt();
+		sc.nextLine();
 	}
+	
+	void print() {
+		System.out.println(firstNum + " + " + secondNum + " = "+(firstNum+secondNum));
+		System.out.println(firstNum + " - " + secondNum + " = "+(firstNum-secondNum));
+		System.out.println(firstNum + " * " + secondNum + " = "+(firstNum*secondNum));
+		System.out.println(firstNum + " + " + secondNum + " = "+(firstNum+secondNum));
+		if(secondNum!=0)
+			{System.out.println(firstNum + " / " + secondNum + " = "+(double)(firstNum/secondNum));
+			}
+	}
+	
+
 	
 }
