@@ -26,6 +26,9 @@ public class IcecreamMarket {
 
 		// 구매정보 출력
 		info();
+		
+//		print();
+		
 	}
 
 	void buy() {
@@ -46,11 +49,12 @@ public class IcecreamMarket {
 		System.out.println("< 총 "+iceArr.length+"개 구매정보 출력>");
 		System.out.println("번호\t아이스크림명\t아이스크림가격");
 		for(int i = 0 ; i < iceArr.length;i++) {
-			System.out.println(i+1 +"\t"+iceArr[i].name+"\t\t"+iceArr[i].price);
+			System.out.println(i+1 +"\t"+iceArr[i].getName()+"\t\t"+iceArr[i].getPrice());	//  멤버변수로 통신이 아닌, 메소드 통신 이용
+//			System.out.println(i+1 +"\t"+iceArr[i].name+"\t\t"+iceArr[i].price); // 멤버변수로 통신을 했기때문에, 멤버변수가 변경되면 에러발생
 		}
 //		int no = 1 ;	// 1.5 포문
 //		for(Icecream ice : iceArr) {
-//			System.out.println(no++ +ice.name + "\t" + ice.price);
+//			System.out.println(no++ +ice.getName() + "\t" + ice.getPrice());
 		}
 	
 }
