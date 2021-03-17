@@ -1,4 +1,7 @@
 package kr.ac.kopo.day08;
+/*
+ * <매개변수가 없는 디폴트 생성자를 먼저 만들고, 매개변수가 있는 생성자를 만들자>
+ */
 
 public class Member {
 
