@@ -137,10 +137,20 @@ public class StringMain03 {
 		}
 		System.out.println("-------------------------------------");
 		
-		while( (searchIdx = str.indexOf(ch)) != -1) {			// 더 효율적인 방법
-			
-		
+		searchIdx = -1;			// -1로 초기화 (while문에서 searchIdx +1부터 찾기 때문)
+		while( (searchIdx = str.indexOf(ch,searchIdx+1)) != -1) {			// 더 효율적인 방법
+			System.out.println("검색된 위치 : "+searchIdx);
 		
 		}
+		System.out.println("-------------------------------------");
+		
+		
+		searchIdx = str.length();
+		while( (searchIdx = str.lastIndexOf(ch,searchIdx-1)) != -1) {
+			System.out.println("검색된 위치 : "+searchIdx);
+		}
+		
+		
+		
 	}
 }
