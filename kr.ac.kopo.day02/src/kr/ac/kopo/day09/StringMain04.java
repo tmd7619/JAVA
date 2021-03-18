@@ -35,6 +35,9 @@ public class StringMain04 {
 		System.out.println(str+"의 trim()전 길이 : "+str.length());
 		str = str.trim();  							// 공백제거 ( 좌우의 공백만 제거가능)
 		System.out.println(str+"의 trim()후 길이 : "+str.length());
+		str = str.replace(" ","");					// 중간 공백제거
+		System.out.println("중간 공백 제거 후 : "+str);
+		
 		
 		System.out.println("-------------------------------------");
 		str = "Hello World";
