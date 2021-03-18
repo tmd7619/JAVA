@@ -34,3 +34,9 @@ static  변수 == 클래스 변수
 ![image-20210318125458615](../../Documents/typora/image-20210318125458615.png)
 
 ![image-20210318125449136](../../Documents/typora/image-20210318125449136.png)
+
+
+
+### <eclipse - Employee.java>
+
+![image-20210318151208481](../../Documents/typora/image-20210318151208481.png)

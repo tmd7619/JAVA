@@ -1,5 +1,7 @@
 package kr.ac.kopo.day09;
 
+import javax.swing.text.Utilities;
+
 public class StringMain03 {
 
 	public static void main(String[] args) {
@@ -149,8 +151,5 @@ public class StringMain03 {
 		while( (searchIdx = str.lastIndexOf(ch,searchIdx-1)) != -1) {
 			System.out.println("검색된 위치 : "+searchIdx);
 		}
-		
-		
-		
 	}
 }
