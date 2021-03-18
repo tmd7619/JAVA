@@ -1,4 +1,4 @@
-package kr.ac.kopo.day08;
+package kr.ac.kopo.day09;
 
 public class StringMain03 {
 
@@ -135,6 +135,7 @@ public class StringMain03 {
 			System.out.println("검색된 위치 : "+searchIdx);
 			searchIdx = str.indexOf(ch,searchIdx+1);
 		}
+		
 		
 		System.out.println("-------------------------------------");
 		searchIdx = -1;			// -1로 초기화 (while문에서 searchIdx +1부터 찾기 때문)
