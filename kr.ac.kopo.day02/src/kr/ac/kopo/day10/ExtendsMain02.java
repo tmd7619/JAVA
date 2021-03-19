@@ -21,7 +21,14 @@ public class ExtendsMain02 {
 		Employee[] empList = {e,e2,e4};
 		Manager01 m = new Manager01(100, "나캡틴", 9_000, "부장",empList);
 		
+		Manager02 m2 = new Manager02(100, "나캡틴", 9_000, "부장",empList);	// 상속을 통한
+		
+		Manager02 m3 = new Manager02(100, "나캡틴", 9_000, "부장",empList);	// 상속을 통한
+		
 		m.info();
+		m2.info();
+		m3.info();
+		
 	}
 
 }

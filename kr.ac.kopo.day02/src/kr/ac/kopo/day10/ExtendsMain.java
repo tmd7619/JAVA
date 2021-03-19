@@ -1,6 +1,10 @@
 package kr.ac.kopo.day10;
 
-class One{
+
+// default가 생략 되어있다. 따라서 같은 패키지 내에 클래스 사용이 가능함.
+
+
+class One{								// public 붙일 수 없음.
 	One(){
 		System.out.println("One 생성자 호출....");
 	}

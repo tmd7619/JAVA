@@ -1,18 +1,18 @@
 package kr.ac.kopo.day10;
 
-public class Manager01 {
+public class Manager01 extends Employee {
 
-	int no;
-	String name;
-	int salary;
-	String grade;
+	public Manager01(Employee[] empList) {
+		super();
+		this.empList = empList;
+	}
+
 	Employee[] empList;		// 관리사원 목록 저장목적으로 생성한다
 	
-	Manager01(int no , String name, int salary, String grade, Employee[] empList){
-		this.no = no;
-		this.name = name;
-		this.salary = salary;
-		this.grade = grade;
+	
+
+	public Manager01(int no, String name, int salary, String grade, Employee[] empList) {
+		super(no, name, salary, grade);
 		this.empList = empList;
 	}
 	
