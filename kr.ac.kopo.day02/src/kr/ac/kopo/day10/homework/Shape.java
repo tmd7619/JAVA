@@ -15,7 +15,7 @@ public class Shape {
 
 	public int getRandom() {				// 2 ~ 10 랜덤 값 불러오기
 		Random r = new Random();
-		int ranNum = r.nextInt(10) + 2;
+		int ranNum = r.nextInt(9) + 2;		// nextInt(x) : 0 ~ x 미만 
 		return ranNum;
 	}
 

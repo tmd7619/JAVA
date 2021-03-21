@@ -3,7 +3,6 @@ package kr.ac.kopo.day10.homework;
 public class Triangle extends Shape {
 	
 	Triangle(){
-		super();
 		setName("삼각형");
 		
 	}

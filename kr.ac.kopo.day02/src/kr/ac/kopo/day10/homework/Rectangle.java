@@ -3,7 +3,6 @@ package kr.ac.kopo.day10.homework;
 public class Rectangle extends Shape {
 	
 	Rectangle(){
-		super();
 		setName("직사각형");
 	}
 	

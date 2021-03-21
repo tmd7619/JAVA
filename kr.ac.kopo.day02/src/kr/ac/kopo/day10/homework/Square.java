@@ -2,7 +2,6 @@ package kr.ac.kopo.day10.homework;
 
 public class Square extends Shape {
 	Square(){
-		super();
 		setName("정사각형");
 	}
 	
