@@ -1,4 +1,4 @@
-package kr.ac.kopo.day11;
+package kr.ac.kopo.day11.abs01;
 
 public class Printer {
 

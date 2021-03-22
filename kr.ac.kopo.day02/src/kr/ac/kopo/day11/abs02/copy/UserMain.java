@@ -1,4 +1,4 @@
-package kr.ac.kopo.day11;
+package kr.ac.kopo.day11.abs02.copy;
 
 /*
  * 프린터를 선택하세요(1.LG 2.삼성)=> 1
@@ -14,3 +14,4 @@ public class UserMain {
 	}
 
 }
+	
