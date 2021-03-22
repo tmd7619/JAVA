@@ -1,16 +1,12 @@
 package kr.ac.kopo.day11.homework;
 
 public class Rectangle extends Shape {
-	
-	Rectangle(){
-		setName("직사각형");
-	}
-	
+
 	@Override
 	public void printShape() {
-		setWidth(getRandom());
-		setLength(getRandom());
-		setCount(getWidth()*getLength());	
-		super.print();
+		int width = super.getRandom();
+		int length = super.getRandom();
+		System.out.print("가로 " + width + " 세로 " + length + "의 직사각형의 면적은 " + (width * length) + "입니다");
+
 	}
 }

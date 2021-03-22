@@ -1,17 +1,12 @@
 package kr.ac.kopo.day11.homework;
 
-public class Square extends Shape {
-	Square(){
-//		super();					//   super()를 쓰지 않아도, 자동으로  Square() 생성자 안에 생성된다.
-		setName("정사각형");
-	}
-	
+public class Square extends Rectangle {
+
 	@Override
-	public void print(int num) {
-		setWidth(getRandom());
-		setCount(getWidth()*getWidth());	
-		super.print(num);
+	public void printShape() {
+		int width = super.getRandom();
+		System.out.print("가로 " + width + " 세로 " + width + "의 정사각형의 면적은 " + (width * width) + "입니다");
+
 	}
-	
 	
 }
