@@ -12,10 +12,11 @@ public class CastMain01 {
 	}
 	*/
 	
-	public static void print(Parent p) {  // 묵시적형변환 발생 (매개변수를 활용한 변환)
-		p.info();
-		if(p instanceof Child01) {			// instanceof는 자식클래스부터 판별해야됨 
-			Child01 c = (Child01)p;			// 부모클래스부터 판별하게 되면 모두 true값이 나옴
+	public static void print(Parent p) {  // 	Parent p = c01 or c02 or p 묵시적형변환 발생 (매개변수를 활용한 변환)
+		p.info();						  //  묵시적 변환이 된 자식클래스의 info()가 실행된다. Parent p = p 일경우, 그대로 Parent.info()
+										  // 이렇듯, Parent p가 c01인지 c02인지 뭐가 묵시적 형변환 됐는지 모르기 때문에, 판별을 해주어야함.
+		if(p instanceof Child01) {			// 따라서 instanceof로 Parent p가 가르키고 있는 클래스를 판별한다.
+			Child01 c = (Child01)p;			// 자식클래스부터 판별해야함 (부모클래스부터 판별하게 되면, 모두 true값이 나오기 때문)
 			c.sleep();
 			c.study();
 		} else if (p instanceof Child02) {
@@ -35,13 +36,13 @@ public class CastMain01 {
 		
 		Child01 c01 = new Child01();	// 묵시적형변환에 의해 override 함수 실행
 		print(c01);						// 매개변수를 c01(Child01)을 받았지만, Parent p가 받게 됨(묵시적 형변환 발생으로)
-		
-		Child02 c02 = new Child02();	// 묵시적형변환에 의해 override 함수 실행
-		print(c02);						// 실제 가르키고 있는 객체는 Child01이기 때문에 false
-		
-		Parent p = new Parent();
-		print(p);
-		
+//		
+//		Child02 c02 = new Child02();	// 묵시적형변환에 의해 override 함수 실행
+//		print(c02);						// 실제 가르키고 있는 객체는 Child01이기 때문에 false
+//		
+//		Parent p = new Parent();
+//		print(p);
+//		
 		
 		/*
 		Parent p = new Child01(); 	// 묵시적형변환 
