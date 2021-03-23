@@ -25,7 +25,7 @@ public class SamsungTV implements TV{
 		info();
 	}
 		
-
+	@Override
 	public void powerOff() {
 		power = false;
 	System.out.println("전원을 끕니다.");

@@ -20,7 +20,7 @@ public class ExceptionMain02 {
 			System.out.println(10/num); // 
 			System.out.println("첫번째 문자 :" + str.charAt(0))	;
 		} catch(Exception e) {			// 묵시적형변환에 의해 어떤 예외가 발생해도 예외처리가 가능함 모든 예외사항은 Exception을 상속받음
-			e.printStackTrace();
+			e.printStackTrace();	// 예외가 발생해도 프로그램을 계속 실행하게 만들어줌
 		}
 		System.out.println("main end...");	
 		/*
