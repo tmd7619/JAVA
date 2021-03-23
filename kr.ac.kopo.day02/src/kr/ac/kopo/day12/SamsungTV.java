@@ -10,6 +10,7 @@ public class SamsungTV {
 		power = false ;
 		channelNo = 3;
 		volumeSize = 6;
+		System.out.println("삼성TV를 구매하였습니다");
 		
 	}
 	public void powerOn(){
