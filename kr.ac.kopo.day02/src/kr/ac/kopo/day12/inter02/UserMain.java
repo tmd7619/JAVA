@@ -5,6 +5,8 @@ public class UserMain {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		
+		
 //		TV tv = new SamsungTV();		// 묵시적형변환
 		TV tv = new SamsungTV();
 		tv.powerOn();
@@ -21,6 +23,7 @@ public class UserMain {
 		tv.mute();
 		tv.soundUp();
 		tv.powerOff();
+		tv.copyright();
 	}
 
 }

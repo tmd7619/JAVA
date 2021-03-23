@@ -14,4 +14,12 @@ public interface TV {		//  모든 인터페이스는 public 형태를 가진다
 	void soundDown();
 	void mute();
 	
+	// 인터페이스는 추상메소드만 가지는 것이 맞다.
+	// but ! 향후 유지보수의 과정에서, 일반 메소드가 필요할때  default 메소드는 이용할 수 있다. 
+	// 처음에 인터페이스를 구성할때부터 쓰는 것이 아님!
+
+	default void copyright() {		// default를 통해 인터페이스에 구현되는 메소드를 만들 수 있다.				
+		System.out.println("모든 기술은 TV협회에 귀속됩니다");
+	}
+
 }								
