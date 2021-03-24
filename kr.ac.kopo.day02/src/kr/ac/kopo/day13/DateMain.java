@@ -42,13 +42,13 @@ public class DateMain {
 		System.out.println("5월은 "+lastday+"일로 구성되어있습니다.");
 		System.out.println("-----------------------------");
 		// 2월의 마지막 날은 몇일?
-		c.set(c.MONTH, 2-1);
+		c.set(c.MONTH, 2-1); // 달을 2로 변경하겠다
 		lastday = c.getActualMaximum(Calendar.DAY_OF_MONTH);
 		System.out.println("2월은 "+lastday+"일로 구성되어있습니다.");
 		System.out.println("-----------------------------");
 		
 		
-		Date d02 = c.getTime();	// Cal => date형으로 변환
+		Date d02 = c.getTime();	// Cal => date형으로 변환(묵시적형변환)
 		
 //		String pattern = "yyyy-MM-dd HH:mm:ss(E)"; // HH: 24시간으로 표시
 		String pattern = "yyyy년 MM월 dd일 hh시:mm분:ss초 (E)요일";

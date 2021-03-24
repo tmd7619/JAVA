@@ -48,14 +48,14 @@ public class ExceptionMain05 {
 		*/
 //		a();
 	}
-	
+	/*
 	public static void b() throws Exception { //throws를 통해 main b()에서 예외처리를 하도록 넘기겠다.
 		System.out.println("b() 메소드 호출 ....");
 		String str = null;
 		System.out.println(str.charAt(0));
 		System.out.println( 1/0);
 	}
-	
+	*/
 	
 	
 	public static void a() {			// main이 static이라 static메소드로 생성
