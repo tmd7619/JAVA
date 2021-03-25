@@ -21,28 +21,13 @@ public class lotoMain {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Scanner sc = new Scanner(System.in);
-		Random r = new Random();
-		
-//		Set<String> set = new HashSet<>();
-		
-		System.out.print("게임수를 입력하세요 : ");
-		int num = sc.nextInt();
-		sc.nextLine();
-		
-		LotoArray ar = new LotoArray();
-		
-		ar.array(num);
+		LotoUtil lu = new LotoUtil(); 
+//		lu.arrayUtli();
+//		lu.arrayListUtli();
+//		lu.setUtil();
+		lu.twoDimensionUtil();
 		
 	
-	
-		
-		
-//		for(int i = 0 ; i <num; i ++) {
-//			for(int j = 0; j< 6 ; j ++) {
-//				
-//			}
-//		}
 		
 		
 	}
