@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -27,11 +26,11 @@ public class LotoUtil {
 		return (gameNum);
 	}
 
-	public void arrayUtli() {
+	public void arrayUtli() {		// 방법1
 
 		int gameNum = printRandom();
-
 		int i = 1;
+		
 		while (i <= gameNum) { // 게임수까지 while문 실행
 			int[] intArr = new int[6]; // i++ 할때마다 배열초기화
 			loop1: for (int j = 0; j < intArr.length; j++) {
@@ -48,13 +47,12 @@ public class LotoUtil {
 		}
 	}
 
-	public void arrayListUtli() {
+	public void arrayListUtli() {	// 방법2
 		int gameNum = printRandom();
-
 		int i = 1;
+		
 		while (i <= gameNum) {
 			List<Integer> list = new ArrayList<>();
-//			Integer[] arr = list.toArray(new Integer[gameNum*6]);
 			while (true) {
 				int random = r.nextInt(45) + 1;
 				if (!list.contains(random)) { // random 값이 없으면,
@@ -71,18 +69,17 @@ public class LotoUtil {
 		}
 	}
 
-	public void setUtil() {
+	public void setUtil() {		// 방법3
 		int gameNum = printRandom();
 		int i = 1;
+		
 		while (i <= gameNum) {
 			Set<Integer> set = new HashSet<>();
 			while (true) {
 				set.add(r.nextInt(45) + 1);
-
-				if (set.size() == 6) {
-					Iterator<Integer> ite = set.iterator();
-					Object[] arr = set.toArray();
-					System.out.println("게임 " + i + " : " + Arrays.toString(arr));
+				if (set.size() == 6) { // set 원소 개수가 6개가 되면,
+					Object[] arr = set.toArray(); // arr 배열에 집어넣기
+					System.out.println("게임 " + i + " : " + Arrays.toString(arr)); // 배열출력
 					break;
 				}
 			}
@@ -90,25 +87,18 @@ public class LotoUtil {
 		}
 	}
 
-	public void twoDimensionUtil() {
+	public void mapUtil() {		// 방법4
 		int gameNum = printRandom();
-		int cnt = 0;
-		Object[][] arr;
-
-		for (int i = 0; i < gameNum; i++) {
-			Set<Integer> set = new HashSet<>();
-			while (true) {
-				set.add(r.nextInt(45) + 1);
-					arr = set.toArray(new Object[cnt][0]);
-					System.out.print(arr[cnt][0]);
-					break;
-				}
+		int i = 1;
+		
+		while (i <= gameNum) {
+			Map<Integer, Integer> map = new HashMap<>();
+			while (map.size() < 6) {
+				int random = r.nextInt(45) + 1;
+				map.put(random, random);
 			}
-//			System.out.print("게임 : ");
-//			for(int j = 0 ; j < arr[cnt].length; j++) {
-//				System.out.print(arr[cnt][j]);
-//			}
-//			cnt++;
+			System.out.println("게임 " + i + " : " + map.keySet());
+			i++;
 		}
-
+	}
 }

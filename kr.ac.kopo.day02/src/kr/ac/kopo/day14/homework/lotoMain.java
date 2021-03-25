@@ -22,14 +22,11 @@ public class lotoMain {
 		// TODO Auto-generated method stub
 
 		LotoUtil lu = new LotoUtil(); 
-//		lu.arrayUtli();
-//		lu.arrayListUtli();
-//		lu.setUtil();
-		lu.twoDimensionUtil();
-		
+		lu.arrayUtli();
+		lu.arrayListUtli();
+		lu.setUtil();
+		lu.mapUtil();
 	
-		
-		
+			
 	}
-
 }
