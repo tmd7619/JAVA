@@ -16,7 +16,7 @@ import java.util.Set;
 로또추출 알고리즘 최소 4개이상
  */
 
-public class lotoMain {
+public class LotoMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
