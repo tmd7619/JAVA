@@ -1,6 +1,7 @@
 package kr.ac.kopo.day14;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
@@ -55,10 +56,22 @@ public class MapMain01 {
 		System.out.println("<< 전체 회원 정보 출력 >>");
 //		Set<Map.Entry<String, String>> entrySet = map.entrySet(); // import java.util.Map.Entry를 통해 Map 생략 가능
 		Set<Entry<String, String>> entrySet = map.entrySet();
-		
 		for(Entry<String, String> e : entrySet) {
 			System.out.println("ID : "+e.getKey()+", PASSWORD : "+e.getValue());
 		}
+		
+		
+		Iterator ite = map.entrySet().iterator();
+		while(ite.hasNext()) {
+			System.out.println(ite.next());
+		}
+		
+		Set<String> keys =  map.keySet();
+		for(String key : keys) {
+			System.out.println("ID : " + key + ", PASSWORD : " + map.get(key));
+		}
+		
+		
 		
 		
 	}
