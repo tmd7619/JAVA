@@ -70,10 +70,10 @@ public class MapMain01 {
 		for(String key : keys) {
 			System.out.println("ID : " + key + ", PASSWORD : " + map.get(key));
 		}
-		
-		
-		
-		
 	}
 
 }
+
+
+
+
