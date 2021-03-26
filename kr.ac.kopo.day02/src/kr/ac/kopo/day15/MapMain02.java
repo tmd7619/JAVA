@@ -7,7 +7,7 @@ class Member{
 	
 	/*
 	@Override
-	public boolean equals(Object obj) {		// Object의 eqauls는 주소값을 비교하기 때문에 오버라이드를 통해 변경해야 함
+	public boolean equals(Object obj) {		// Object의 equals는 주소값을 비교하기 때문에 오버라이드를 통해 변경해야 함
 		// TODO Auto-generated method stub
 		boolean result = false;
 		
@@ -84,7 +84,7 @@ class Car{
 	}
 	
 }
-/*
+
 
 class MemberInfo {
 	private Member m ;
@@ -120,7 +120,7 @@ class Test {
 	
 	
 }
- */
+
 public class MapMain02 {
 
 	public static void main(String[] args) {

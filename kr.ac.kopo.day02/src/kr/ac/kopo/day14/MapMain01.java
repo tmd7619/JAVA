@@ -38,7 +38,7 @@ public class MapMain01 {
 		}
 		System.out.println("현재 패스워드를 입력하세요 : ");	 //  System.exit(0)로 인해 else 구문 기능과 똑같다.
 		String password = sc.nextLine()	;
-		if(!map.get(id).equals(password)) { // == 로 비교하면 안됨! ( ==로하게 되면 주소값 비교로 하게됨)
+		if(!map.get(id).equals(password)) { // 키밸류가 같은 주소값이기 때문에, equals로 주소값 T/F 판별
 			System.out.println("패스워드가 잘못되었습니다");
 			System.out.println("서비스를 종료합니다.");
 			System.exit(0);
@@ -73,7 +73,13 @@ public class MapMain01 {
 	}
 
 }
-
-
+/*
+entrySet()은 key와 value 모두가 필요할 경우 사용하며 
+keySet()은 key 값만 필요할 경우 사용하는데 key값만 받아서 
+et(key)를 활용하여 value도 출력할 수도 있기에 
+어떤 메소드를 선택하든지 간에 큰 상관이 없어 대부분 코드가 간단한 keySet을 활용하시던데
+key값을 이용해서 value를 찾는 과정에서 시간이 많이 소모되므로 
+많은 양의 데이터를 가져와야 한다면 entrySet()이 좋습니다.(약 20%~200% 성능 저하가 있음)
+*/
 
 

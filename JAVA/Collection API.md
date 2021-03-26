@@ -17,11 +17,14 @@
 ![image-20210325115533998](image/image-20210325115533998.png)
 
 - 모든 데이터에 접근할 수 있다. 하지만, 순서가 있기때문에 앞쪽 인덱스는 빠르게 접근할 수 있는데, 뒤로 갈 수록 데이터 검색 속도가 느려짐 => 데이터를 검색용으로 사용하는거면, List는 비효율적
-
 - 객체를 만들 수 없음 (interface)
 - 따라서 구현클래스를 만들기 위해 ArrayList, LinkedList를 사용
 
+![image-20210326212332656](C:\Users\YunSeungWon_2\AppData\Roaming\Typora\typora-user-images\image-20210326212332656.png)
 
+ArrayList는 인덱스로 데이터를 관리하지만 **LinkedList**는 인접한 곳을 링크하여 체인처럼 관리**한다. LinkedList는 중간의 데이터를 삭제할 때 인접한 곳의 링크만을 변경하면 되기 때문에 **중간에 데이터를 추가/삭제하는 경우 처리 속도가 빠르다**.** 
+
+[출처]** http://blog.naver.com/heartflow89/220991199432
 
 ## **ArrayList - 메소드 **
 
@@ -98,3 +101,10 @@ Set은 get메소드 존재 x => index가 존재하지 않기 때문
 - 인자값에는 대부분 KEY  값이 들어감.
 
 - set은 중복된 데이터 값을 넣을 수가 없는데, map은 동일한 키값이 있을경우, value값을 새로운 값으로 대체하고 기존 값 반환 (value overwritten)
+
+**LinkedHashMap과 TreeMap**
+
+Map의 가장 큰 특징은 순서에 의존하지 않고 key로 value를 가져오는데 있다. 하지만 가끔은 Map에 입력된 순서대로 데이터를 가져오고 싶은 경우도 있고 때로는 입력된 key에 의해 소트된 데이터를 가져오고 싶을 수도 있을 것이다. 이런경우에는 LinkedHashMap과 TreeMap을 사용하는 것이 유리하다.
+
+- LinkedHashMap은 입력된 순서대로 데이터가 출력되는 특징을 가지고 있다.
+- TreeMap은 입력된 key의 소트순으로 데이터가 출력되는 특징을 가지고 있다.
