@@ -4,7 +4,8 @@ package kr.ac.kopo.day02;
 /*
  *
  자료형 크기 비교
- byte < short < int < long < float < double < char < int < long < float < double
+ byte < short < int < long < float < double 
+ char < int < long < float < double
  */
 
 public class CastMain {
@@ -28,6 +29,9 @@ public class CastMain {
 		int num2 = (int)12.34 ;
 
 		
+		System.out.println(" \"이스케이프문자테스트\" ");
+		
+		System.out.println(" \\이스케이프문자테스트\\ ");
 		
 		
 		

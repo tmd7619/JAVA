@@ -13,7 +13,7 @@ public class ArrayMain06 {
 		int[]c = new int[a.length+b.length];
 
 		System.arraycopy(a, 0, c, 0, a.length); // a의 , 0번째부터 , 복사할 c의 , 0번째부터 , a의 length개수만큼
-		System.arraycopy(b, 0, c, 3, b.length); // b의 , 0번째부터 , 복사할 c의 , 3번째부터 , b의 length개수만큼
+		System.arraycopy(b, 0, c, a.length, b.length); // b의 , 0번째부터 , 복사할 c의 , 3번째부터 , b의 length개수만큼
 		System.out.println("a : " + Arrays.toString(a));
 		System.out.println("b : " + Arrays.toString(b));
 		System.out.println("c : " + Arrays.toString(c));

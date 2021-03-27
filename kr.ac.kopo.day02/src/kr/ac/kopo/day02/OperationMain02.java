@@ -16,14 +16,14 @@ public class OperationMain02 {
 		
 		boolean bool2 = a++ > 0 || b++ > 0 || c++ > 0; 
 		
-		System.out.println("bool : " + bool2);
+		System.out.println("bool2 : " + bool2);
 		 
-		System.out.println("a  : " + a +  ", b : " + b + ", c : " + c); // bool : true , a = 2, b  = -1 , c = 0
+		System.out.println("a  : " + a +  ", b : " + b + ", c : " + c); // bool2 : true , a = 2, b  = -1 , c = 0
 		
 		
 		boolean bool3 = a++ > 0 || b++ > 0 && c++ > 0;   				// 교집함이 합집합보다 우선순위가 높다
 		
-		System.out.println("bool : " + bool3);							// 계산은 왼쪽부터지만, 논리 단위가 a++ > 0 || (b++ > 0 && c++ > 0)로 묶인다.
+		System.out.println("bool3 : " + bool3);							// 계산은 왼쪽부터지만, 논리 단위가 a++ > 0 || (b++ > 0 && c++ > 0)로 묶인다.
 		 
 		System.out.println("a  : " + a +  ", b : " + b + ", c : " + c);	// bool : true , a = 2 , b = -1 c = 0
 		
