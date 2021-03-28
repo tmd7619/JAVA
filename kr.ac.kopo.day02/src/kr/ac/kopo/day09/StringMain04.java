@@ -14,7 +14,7 @@ public class StringMain04 {
 		System.out.println("substring(1,5) : ["+subStr+"]");
 		
 		subStr = str.substring(6);		// 6번째 idx부터 끝까지~
-		System.out.println("substring(1,5) : ["+subStr+"]");
+		System.out.println("substring(6) : ["+subStr+"]");
 		
 		System.out.println("-------------------------------------");
 		String str1 = "hello";
@@ -26,8 +26,8 @@ public class StringMain04 {
 		System.out.println("-------------------------------------");
 		str = "hello world";
 		System.out.println("replace() 전 : "+str);
-//		str = str.replace('l', 'r'); 				// 문자 치환
-		str = str.replace("ll","rrrrrrrr");			// 문자열 치환
+		str = str.replace('l', 'r'); 				// 문자 치환
+//		str = str.replace("ll","rrrrrrrr");			// 문자열 치환
 		System.out.println("replace() 후 : "+str);
 		
 		System.out.println("-------------------------------------");
@@ -52,7 +52,7 @@ public class StringMain04 {
 		System.out.println(Arrays.toString(strArr));
 		
 		String ip = "192.168.5.203";
-		String[] ipArr = ip.split("\\.");				//  .(도트)를 출력할때는 < \\. >로 써야함.
+		String[] ipArr = ip.split("\\.");				//  .(도트)를 출력할때는 < \\. >로 써야함. (단순출력은 .만써도 가능)
 		System.out.println(Arrays.toString(ipArr));
 		
 		System.out.println("-------------------------------------");
@@ -60,7 +60,6 @@ public class StringMain04 {
 //		String strNum = num + "";
 		String strNum = String.valueOf(num);   // 정수를 포함하여 다양한 타입들을 문자열로 바꿔줌
 		System.out.println(strNum+10);		   // strNum이 문자열이라 123+10 = 133이 아닌 12310이 출력
-		
 		System.out.println(String.valueOf(true)+false);
 		
 		

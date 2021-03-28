@@ -21,11 +21,11 @@ public class StringMain01 {
 //		String str7 = "hello";					// 같은 hello를 가르킴
 		
 		System.out.println("str : ["+str+"]");
-		System.out.println("str : ["+str2+"]");
-		System.out.println("str : ["+str3+"]");
-		System.out.println("str : ["+str4+"]");
-		System.out.println("str : ["+str5+"]");
-		System.out.println("str : ["+str6+"]");
+		System.out.println("str2 : ["+str2+"]");
+		System.out.println("str3 : ["+str3+"]");
+		System.out.println("str4 : ["+str4+"]");
+		System.out.println("str5 : ["+str5+"]");
+		System.out.println("str6 : ["+str6+"]");
 		
 	}
 
