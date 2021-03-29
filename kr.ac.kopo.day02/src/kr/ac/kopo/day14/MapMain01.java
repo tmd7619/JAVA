@@ -76,7 +76,7 @@ public class MapMain01 {
 /*
 entrySet()은 key와 value 모두가 필요할 경우 사용하며 
 keySet()은 key 값만 필요할 경우 사용하는데 key값만 받아서 
-et(key)를 활용하여 value도 출력할 수도 있기에 
+set(key)를 활용하여 value도 출력할 수도 있기에 
 어떤 메소드를 선택하든지 간에 큰 상관이 없어 대부분 코드가 간단한 keySet을 활용하시던데
 key값을 이용해서 value를 찾는 과정에서 시간이 많이 소모되므로 
 많은 양의 데이터를 가져와야 한다면 entrySet()이 좋습니다.(약 20%~200% 성능 저하가 있음)

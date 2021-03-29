@@ -25,9 +25,8 @@ public class FileIOMain03 {
 			bos = new BufferedOutputStream(fos);
 			
 			// 복사수행
-			while(true) {
-				int c = bis.read(); // 읽어들이기
-				if(c ==-1) break;
+			int c = 0;
+			while((c =bis.read()) != -1) {
 				bos.write(c);		// 저장
 			}
 			long end = System.currentTimeMillis();

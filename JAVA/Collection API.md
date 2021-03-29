@@ -20,7 +20,7 @@
 - 객체를 만들 수 없음 (interface)
 - 따라서 구현클래스를 만들기 위해 ArrayList, LinkedList를 사용
 
-![image-20210326212332656](C:\Users\YunSeungWon_2\AppData\Roaming\Typora\typora-user-images\image-20210326212332656.png)
+
 
 ArrayList는 인덱스로 데이터를 관리하지만 **LinkedList**는 인접한 곳을 링크하여 체인처럼 관리**한다. LinkedList는 중간의 데이터를 삭제할 때 인접한 곳의 링크만을 변경하면 되기 때문에 **중간에 데이터를 추가/삭제하는 경우 처리 속도가 빠르다**.** 
 

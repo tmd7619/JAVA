@@ -12,7 +12,7 @@ static  변수 == 클래스 변수
 
 - static 이란 키워드는 변수나 메소드에만 붙일 수 있다.
 
-  ![image-20210318123703222](C:\Users\YunSeungWon_2\eclipse-workspace\JAVA\image\image-20210318123703222.png)
+  ![image-20210318123703222](image\image-20210318123703222.png)
 
   -   **static  변수가 먼저 생성됨**
   - **메소드 또한  static 메소드가 먼저 생성된다**
@@ -25,14 +25,14 @@ static  변수 == 클래스 변수
 
 
 
-![image-20210318124437001](C:\Users\YunSeungWon_2\eclipse-workspace\JAVA\image\image-20210318124437001.png)
+![image-20210318124437001](image\image-20210318124437001.png)
 
 
 
-![image-20210318125217220](C:\Users\YunSeungWon_2\eclipse-workspace\JAVA\image\image-20210318125217220.png)
+![image-20210318125217220](image\image-20210318125217220.png)
 
 
 
 ### <eclipse - Employee.java>
 
-![image-20210318151208481](C:\Users\YunSeungWon_2\eclipse-workspace\JAVA\image\image-20210318151208481.png)
+![image-20210318151208481](image\image-20210318151208481.png)

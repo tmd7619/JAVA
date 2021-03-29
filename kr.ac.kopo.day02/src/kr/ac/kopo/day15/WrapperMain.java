@@ -45,8 +45,15 @@ public class WrapperMain {
 		System.out.println("i3: "+i3);
 		
 		String str = "10234";				// 자바는 똑같은 기능을 하는 메서드가 2개이상 존재하지 앟는다
+		
+		// String -> int or integer
 		int num = Integer.parseInt(str);	// return 타입이 기본자료형 int
 			num = Integer.valueOf(str);		// return타입이 wrapper클래스의 참조자료형
+		
+		// int or integer -> String
+		String str2 = Integer.toString(num);
+//		String str3 = Integer.valueOf(num);
+		
 		
 		System.out.println(num + 100);
 	}
