@@ -7,7 +7,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileIOMain12 {
+public class FileIOMain11 {
 
 	
 	public static void write() {
