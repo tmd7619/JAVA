@@ -1,6 +1,8 @@
 package kr.ac.kopo.day16;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,13 +22,12 @@ public class FileIOMain12 {
 		list.add(user2);
 		list.add(user3);
 		
-		FileOutputStream fos = new FileOutputStream("iodata/UserVO.txt");
-		ObjectOutputStream oos = new ObjectOutputStream(fos);
-		
-		
-		
-		
 		try {
+			FileOutputStream fos = new FileOutputStream("iodata/UserVO.txt");
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(list);
+			oos.flush();
+			System.out.println("UserVO에 저장 완료");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -36,8 +37,31 @@ public class FileIOMain12 {
 	}
 	
 	
+	public static void read() {
+		List<UserVO> list = null;
+		
+		try {
+			FileInputStream fis = new FileInputStream("iodata/UserVO.txt");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			
+			
+			list = (List<UserVO>)ois.readObject();
+			System.out.println("파일 로드 완료...");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		for(int i = 0; i < list.size(); i ++ ) {
+			System.out.println(list.get(i));
+			
+		}
+		
+	}
+	
 	public static void main(String[] args) {
 		write();
+		read();
 		
 	}
 }

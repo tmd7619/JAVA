@@ -1,8 +1,10 @@
 package kr.ac.kopo.day16;
 
+import java.io.Serializable;
+
 // VO : Value Object  vo와 dto는 거의 같은 이름 
 
-public class UserVO {
+public class UserVO implements Serializable {
 
 	private String name ;
 	private int age;
