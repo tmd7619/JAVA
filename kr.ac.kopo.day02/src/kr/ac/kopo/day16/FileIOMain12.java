@@ -25,6 +25,7 @@ public class FileIOMain12 {
 		try {
 			FileOutputStream fos = new FileOutputStream("iodata/UserVO.txt");
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
+
 			oos.writeObject(list);
 			oos.flush();
 			System.out.println("UserVO에 저장 완료");
