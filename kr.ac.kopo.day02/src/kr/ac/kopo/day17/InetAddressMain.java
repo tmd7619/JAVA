@@ -17,7 +17,7 @@ public class InetAddressMain {
 		InetAddress addr = InetAddress.getByName("www.hanati.co.kr");
 		System.out.println("하나금융티아이 IP : " + addr.getHostAddress());
 		
-		InetAddress[]  addrs = InetAddress.getAllByName("www.naver.com");
+		InetAddress[]  addrs = InetAddress.getAllByName("www.naver.com"); // 해당 도메인의 모든 ip주소를 가져옴 / 리턴타입은 배열
 		System.out.println("----------------------------------------------------");
 		System.out.println("----------------------네이버 아이피 주소 ------------");
 		System.out.println("--------------------------------------------");
