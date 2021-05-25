@@ -33,7 +33,7 @@ public class InsertMain03 {
 			String url = "jdbc:oracle:thin:@192.168.119.119:1521:dink";
 			String user = "scott";
 			String password = "tiger";
-			conn = DriverManager.getConnection(url, user, password);
+			conn = DriverManager.getConnection(url, user, password); // 데이터베이스 연결
 			System.out.println("conn : " + conn);
 			
 			System.out.print("아이디 입력 : ");
