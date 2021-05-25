@@ -36,11 +36,20 @@ public class UpdateMain01 {
 			
 			System.out.printf("수정할 이름 입력 : ");
 			String name = sc.nextLine();
-			
+			/*
 			String sql = "update t_test ";
 				   sql += " set name = ? ";
 				   sql += " where id = ? ";
 			pstmt = conn.prepareStatement(sql);
+			*/
+			
+			StringBuilder sql = new StringBuilder()	; // String은 변하지 않는 문자열이기 때문에, 좀더 유연하고 속도가 빠른 StringBuilder를 쓰는것이 더 좋다.
+			sql.append("update t_ test " );			  // why ? 쿼리문의 변화가 자주 일어날 수 있기 때문 ( web에서도 StringBuilder를 선호 ) 
+			sql.append(" set name = ? " );
+			sql.append(" where id = ? " );
+			
+			pstmt = conn.prepareStatement(sql.toString()); // 
+			
 			pstmt.setString(1,name);
 			pstmt.setString(2, id);
 			
