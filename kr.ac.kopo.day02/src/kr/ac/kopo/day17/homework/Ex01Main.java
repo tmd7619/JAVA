@@ -7,8 +7,8 @@ public class Ex01Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		String input = null;
+		Ex01 e = new Ex01();
 		loop1 : while (true) {
-			Ex01 e = new Ex01();
 			e.search();
 			while (true) {
 				System.out.print("[M]새폴더  [R]이름변경  [D]삭제 [.]상위폴더이동 [move]하위폴더 이동 [q]종료 : ");
@@ -26,8 +26,8 @@ public class Ex01Main {
 				} else if (input.equals(".")) {
 					e.upDir(); // 상위폴더 이동
 					break;
-				} else if (input.equals("move")) {
-					e.downDir(); // 하위폴더 이동
+				} else if (input.startsWith("move")) {
+					e.downDir(input.substring(5)); // 하위폴더 이동 // "move "뒤에 하위폴더명을 인자로 받음
 					break;
 				} else if (input.equals("q")) {
 					System.out.println("파일 탐색기를 종료하겠습니다.");
