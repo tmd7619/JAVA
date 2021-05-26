@@ -29,7 +29,7 @@ import java.util.Random;
 
 class CallThread extends Thread {
 
-	private int callCenterNumber ; 
+	private int ccm ;  //callCenterNumber
 	private int sum;
 	Random r = new Random();
  
@@ -38,20 +38,20 @@ class CallThread extends Thread {
 	}
 	
 	void setCallCenterNumber(int callCenterNumber) { // 
-		this.callCenterNumber = callCenterNumber;
+		this.ccm = callCenterNumber;
 	}
 	@Override
 	public void run() {
 		for(int i = 0 ; i < 10; i ++) {
 			int inputNum = (r.nextInt(10)+1)*1000;
-			System.out.println(this.callCenterNumber+"번 콜센터 : "+inputNum + "원을 받았습니다." );
+			System.out.println(this.ccm+"번 콜센터 : "+inputNum + "원을 받았습니다." );
 			sum += inputNum;
 		}
-		System.out.println(this.callCenterNumber + "번 콜센터 총 성금액 : " + sum +"원"); // 10통 전화 후 각 콜센터 별로 총 성금액 출력
+		System.out.println(this.ccm + "번 콜센터 총 성금액 : " + sum +"원"); // 10통 전화 후 각 콜센터 별로 총 성금액 출력
 	}
 }
 
-public class Ex02Main {
+public class CallCenterMain {
 
 	
 	public static void main(String[] args) {

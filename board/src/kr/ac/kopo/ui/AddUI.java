@@ -15,7 +15,7 @@ public class AddUI extends BaseUI { // business logic class
 		newBoard.setTitle(title);
 		newBoard.setWriter(writer);
 		
-		service.새글등록서비스(newBoard); // protected로 인해 자식클래스가 service를 사용할 수 있다.
+		service.새글등록(newBoard); // protected로 인해 자식클래스가 service를 사용할 수 있다.
 		
 		System.out.println("게시글 등록을 완료하였습니다.");
 		

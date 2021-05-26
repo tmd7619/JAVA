@@ -18,6 +18,7 @@ public class BoardDAO { // 게시글들을 관리
 	 * 전체 게시글 조회  
 	 */
 	public List<BoardVO> 전체게시글조회() throws Exception{
+		System.out.println("dao 전체 게시글 조회..");
 		return list;
 	}
 	
@@ -33,7 +34,7 @@ public class BoardDAO { // 게시글들을 관리
 	
 	public void 새글등록(BoardVO newBoard) {
 		list.add(newBoard);
-		System.out.println("dao : " + newBoard);
+		System.out.println("dao : " + newBoard +  " size : " + list.size());
 	}
 	
 	public void 게시글수정(BoardVO board) {

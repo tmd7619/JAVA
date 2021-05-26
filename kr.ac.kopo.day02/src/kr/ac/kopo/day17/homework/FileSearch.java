@@ -25,29 +25,28 @@ b.txt		파일		25bytes
 ------------------------------------------
 */
 
-public class Ex01 {
+public class FileSearch {
 
 	Scanner sc = new Scanner(System.in);
 	private String fileName;
 	private String loc ;
+	private String input;
 	private int cnt = 0 ;
-	
+	File dir ;; 
 	
 	
 	public void search() {
 
 		// 파일 최종 수정일 날짜 형식
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		File dir = null;
 		
 		if(cnt == 0 ) { // 
 			loc = "iodata";
-		dir = new File(loc);
+		dir = new File("iodata");
 		}else if (cnt == 1) {
 			dir = new File(loc);
-		} else if (cnt == 2) {
-			dir = new File(loc);
-		}
+		} 
+		
 		String fn = null; // 파일 이름
 		String fk = null; // 파일 종류
 		long fs; // 파일 크기
@@ -147,42 +146,15 @@ public class Ex01 {
 
 	public void upDir() {
 		
-		loc = "iodata" ; // 상위폴더로 위치 변경
+		loc = dir.getParent(); // 상위폴더로 위치 변경
 		cnt = 1;
 	}
 
 	public void downDir(String input) {
-		
-		loc = loc + "/" + input;
-		File downFileObj = new File(loc);
-		
-		if(downFileObj.isDirectory()) {
-			System.out.println("dir");
-		}
-		
-		File[] fList = downFileObj.listFiles();
-		
-		
-		System.out.println(downFileObj.getName());
-		
-		if(fList == null) {
-			System.out.println("정보 x");
-			return;
-		}
-		
-		if(fList.length == 0) {
-			System.out.println("정보 X");
-			return;
-		}
-		
-		for(int i = 0; i < fList.length; i++) {
-			System.out.println(fList[i].getName());
-		}
-		
-		
-		cnt = 2;
-		
-		
+		this.input = input;
+		loc = loc + "/" + this.input;
+
+		cnt = 1;
 	}
 
 }

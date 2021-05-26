@@ -3,6 +3,7 @@ package kr.ac.kopo.ui;
 import java.util.Scanner;
 
 import kr.ac.kopo.service.BoardService;
+import kr.ac.kopo.service.BoardServiceFactory;
 
 public abstract class  BaseUI implements IBoardUI {
 
@@ -11,7 +12,7 @@ public abstract class  BaseUI implements IBoardUI {
 	
 	public BaseUI() {
 		sc = new Scanner(System.in);
-		service = new BoardService();
+		service = BoardServiceFactory.getInstance();
 	}
 	
 	protected String scanStr(String msg) {

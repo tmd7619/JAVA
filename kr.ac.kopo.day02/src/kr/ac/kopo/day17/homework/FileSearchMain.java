@@ -2,12 +2,13 @@ package kr.ac.kopo.day17.homework;
 
 import java.util.Scanner;
 
-public class Ex01Main {
+public class FileSearchMain {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		String input = null;
-		Ex01 e = new Ex01();
+		
+		FileSearch e = new FileSearch();
 		loop1 : while (true) {
 			e.search();
 			while (true) {
