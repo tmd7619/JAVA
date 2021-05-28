@@ -11,11 +11,12 @@ import kr.ac.kopo.util.JDBCClose;
 import kr.ac.kopo.vo.BoardVO;
 
 public class BoardDAODB {
-		
-	/*
-	 * 전체게시글 조회
-	 */
 	
+	/*
+	 	비즈니스 로직을 처리하는 클래스 
+	 	
+	 */
+
 	public List<BoardVO> 전체게시글조회() throws Exception {
 	      
 	      List<BoardVO> list = new ArrayList<BoardVO>();
@@ -53,16 +54,12 @@ public class BoardDAODB {
 	      return list;
 	      
 	   }
-	/*
-	 * no로 게시글 조회
-	 */
+
 	public BoardVO 글번호조회(int no) throws Exception {
 		
 		return null;
 	}
-	/*
-	 * 새글등록
-	 */
+
 	public void 새글등록(BoardVO newBoard) throws Exception {
 		
 		Connection conn = null;

@@ -1,11 +1,17 @@
 package kr.ac.kopo.ui;
 
 public class BoardUI extends BaseUI {
+	
+	/*
+	 * 메뉴 class
+	 * 
+	 */
+	
 
 	@Override
 	public void execute() throws Exception { // 예외처리를 BoardMain의 catch구문에 넘김 
 
-		while (true) { // swith 예외 처리를 해주기 위해 while문에 try/catch 구문을 넣는 것이 좋다.// 안그러면 main catch구문이 처리
+		while (true) { // switch 예외 처리를 해주기 위해 while문에 try/catch 구문을 넣는 것이 좋다.// 안그러면 main catch구문이 처리
 			try {
 			IBoardUI ui = null;
 			int type = menu();

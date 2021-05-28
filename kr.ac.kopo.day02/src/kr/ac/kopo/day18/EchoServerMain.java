@@ -35,7 +35,7 @@ public class EchoServerMain {
 			// 수신한 데이터를 클라이언트에 재전송할 객체 
 			OutputStream os = client.getOutputStream();
 			OutputStreamWriter osw = new OutputStreamWriter(os);
-			PrintWriter pw = new PrintWriter(osw);
+			PrintWriter pw = new PrintWriter(osw); // printWriter가 Buffer 제거까지 함
 			
 			while(true) {
 			String msg = br.readLine(); // 클라이언트에서 넘어온 데이터 받기 // 순서 2

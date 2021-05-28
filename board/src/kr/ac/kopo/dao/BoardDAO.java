@@ -5,7 +5,10 @@ import java.util.List;
 
 import kr.ac.kopo.vo.BoardVO;
 
-public class BoardDAO { // 게시글들을 관리 
+public class BoardDAO {
+	/*
+	 * 프로그램 상에서만 작동하는 DAO 
+	 */
 	
 	private List<BoardVO> list;
 	
