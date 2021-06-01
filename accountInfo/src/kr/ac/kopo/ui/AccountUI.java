@@ -1,16 +1,16 @@
 package kr.ac.kopo.ui;
 
-import kr.ac.kopo.accountui.DeleteUI;
-import kr.ac.kopo.accountui.DepositUI;
-import kr.ac.kopo.accountui.OpenAccountUI;
-import kr.ac.kopo.accountui.SearchAllUI;
-import kr.ac.kopo.accountui.SearchBankUI;
-import kr.ac.kopo.accountui.SearchNumUI;
-import kr.ac.kopo.accountui.TransferUI;
-import kr.ac.kopo.accountui.UpdateUI;
-import kr.ac.kopo.accountui.WithdrawUI;
-import kr.ac.kopo.customerui.LoginUI;
-import kr.ac.kopo.customerui.RegisterUI;
+import kr.ac.kopo.ui.account.DeleteUI;
+import kr.ac.kopo.ui.account.DepositUI;
+import kr.ac.kopo.ui.account.OpenAccountUI;
+import kr.ac.kopo.ui.account.SearchAccountUI;
+import kr.ac.kopo.ui.account.SearchAllUI;
+import kr.ac.kopo.ui.account.SearchBankUI;
+import kr.ac.kopo.ui.account.TransferUI;
+import kr.ac.kopo.ui.account.UpdateNicknameUI;
+import kr.ac.kopo.ui.account.WithdrawUI;
+import kr.ac.kopo.ui.customer.LoginUI;
+import kr.ac.kopo.ui.customer.RegisterUI;
 
 public class AccountUI extends BaseUI {
 
@@ -37,7 +37,7 @@ public class AccountUI extends BaseUI {
 			case 0:
 				break; // 종료
 			}
-			
+			System.out.println(CustomerBaseUI.getCustomer());
 			while (true) {
 				try {
 					int type2 = menu();
@@ -49,7 +49,7 @@ public class AccountUI extends BaseUI {
 						ui = new SearchBankUI();
 						break;
 					case 3:
-						ui = new SearchNumUI();
+						ui = new SearchAccountUI();
 						break;
 					case 4:
 						ui = new TransferUI();
@@ -61,11 +61,14 @@ public class AccountUI extends BaseUI {
 						ui = new WithdrawUI();
 						break;
 					case 7:
-						ui = new UpdateUI();
+						ui = new UpdateNicknameUI();
+						break;
 					case 8:
 						ui = new OpenAccountUI();
+						break;
 					case 9:
 						ui = new DeleteUI();
+						break;
 					case 0:
 						ui = new ExitUI();
 						break;

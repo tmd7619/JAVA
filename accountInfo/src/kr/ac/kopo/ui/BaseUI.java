@@ -2,6 +2,8 @@ package kr.ac.kopo.ui;
 
 import java.util.Scanner;
 
+import kr.ac.kopo.service.AccountService;
+import kr.ac.kopo.service.AccountServiceFactory;
 import kr.ac.kopo.service.CustomerService;
 import kr.ac.kopo.service.CustomerServiceFactory;
 
@@ -10,11 +12,14 @@ public abstract class BaseUI implements IAccountUI {
 	
 	
 	private Scanner sc ;
-	protected CustomerService service;
+	protected CustomerService cservice;
+	protected AccountService aservice;
+	
 	
 	public BaseUI() {
 		sc = new Scanner(System.in);
-		service = CustomerServiceFactory.getInstance();
+		cservice = CustomerServiceFactory.getInstance();
+		aservice = AccountServiceFactory.getInstance() ;
 	}
 	
 	protected String scanStr(String msg) {
@@ -28,5 +33,6 @@ public abstract class BaseUI implements IAccountUI {
 		return num;
 		
 	}
+
 
 }

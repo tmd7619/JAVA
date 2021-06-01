@@ -13,24 +13,25 @@ public class CustomerService {
 
 	}
 
-	public CustomerVO login(String id, String pwd) throws Exception {
+	public CustomerVO login(String id, String pwd) throws Exception { // 로그인
 
 		CustomerVO customer = cdao.login(id, pwd);
 
 		return customer;
 	}
 
-	public CustomerVO overlapCheck(String id) throws Exception {
+	public CustomerVO overlapCheck(String id) throws Exception { // 아이디 중복 체크 메서드
 
 		CustomerVO customer = cdao.overlapCheck(id);
 		return customer;
 
 	}
 
-	public void register(CustomerVO newCustomer) throws Exception{
+	public void register(CustomerVO newCustomer) throws Exception{ // 회원가입
 		
 		cdao.register(newCustomer);
 		
 	}
+
 
 }

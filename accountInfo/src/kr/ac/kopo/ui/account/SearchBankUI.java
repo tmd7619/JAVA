@@ -1,0 +1,36 @@
+package kr.ac.kopo.ui.account;
+
+import java.util.List;
+
+import kr.ac.kopo.ui.AccountBaseUI;
+import kr.ac.kopo.ui.CustomerBaseUI;
+import kr.ac.kopo.vo.AccountVO;
+
+public class SearchBankUI extends AccountBaseUI {
+
+	@Override
+	public void execute() throws Exception {
+
+		while (true) {
+			System.out.println("================================================");
+			System.out.println("\t" + CustomerBaseUI.getCustomer().getName() + "님의 은행별 계좌 조회하기");
+			System.out.println("================================================");
+			String bankName = scanStr("\t조회하실 은행명을 입력해주세요 ex)xx은행 : ");
+
+			List<AccountVO> list = aservice.searchBank(bankName);
+
+			if (list.size() == 0) {
+				System.out.println("\t" + bankName + "에는 조회할 수 있는 계좌가 없습니다.");
+			} else {
+				System.out.println("\t" + bankName + "의 계좌 리스트");
+				System.out.println("별칭\t계좌번호\t예금액\t계좌생성날짜");
+				for (int i = 0; i < list.size(); i++) {
+					System.out.println(list.get(i).getNickname() + "\t" + list.get(i).getAccount() + "\t"
+							+ list.get(i).getBalance() + "\t" + list.get(i).getCredate());
+				}
+				break;
+			}
+		}
+	}
+
+}

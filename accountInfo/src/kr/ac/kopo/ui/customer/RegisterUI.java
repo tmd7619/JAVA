@@ -1,4 +1,4 @@
-package kr.ac.kopo.customerui;
+package kr.ac.kopo.ui.customer;
 
 import kr.ac.kopo.ui.BaseUI;
 import kr.ac.kopo.vo.CustomerVO;
@@ -15,7 +15,7 @@ public class RegisterUI extends BaseUI{
 		while(true) {
 		id = scanStr("\t아이디를 입력하세요 : ");
 	
-		if(service.overlapCheck(id) == null) {
+		if(cservice.overlapCheck(id) == null) {
 			break;
 		
 		}else {
@@ -31,7 +31,7 @@ public class RegisterUI extends BaseUI{
 			
 			CustomerVO newCustomer = new CustomerVO(id,pwd,name,birth);
 			
-			service.register(newCustomer);
+			cservice.register(newCustomer);
 			break;
 		}
 		
