@@ -2,17 +2,20 @@ package kr.ac.kopo.ui;
 
 import java.util.Scanner;
 
+import kr.ac.kopo.service.CustomerService;
+import kr.ac.kopo.service.CustomerServiceFactory;
+
 
 public abstract class BaseUI implements IAccountUI {
 	
 	
 	private Scanner sc ;
-//	protected BoardService service;
-//	
-//	public BaseUI() {
-//		sc = new Scanner(System.in);
-//		service = BoardServiceFactory.getInstance();
-//	}
+	protected CustomerService service;
+	
+	public BaseUI() {
+		sc = new Scanner(System.in);
+		service = CustomerServiceFactory.getInstance();
+	}
 	
 	protected String scanStr(String msg) {
 		System.out.print(msg);

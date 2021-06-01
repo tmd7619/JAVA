@@ -5,44 +5,69 @@ public class CustomerVO {
 	private String id; // 아이디
 	private String pwd; // 비밀번호
 	private String name; // 고객이름
-	private int birth; // 생년월일(6자)
-	private String createdAt;  // 가입날짜
+	private String birth; // 생년월일(6자)
+	private String regdate;  // 가입날짜
 	
 	
-	String getId() {
-		return id;
+	
+	
+	
+	public CustomerVO() {
+		
 	}
-	void setId(String id) {
+	public CustomerVO(String id, String pwd, String name, String birth, String regdate) {
+		super();
 		this.id = id;
-	}
-	String getPwd() {
-		return pwd;
-	}
-	void setPwd(String pwd) {
 		this.pwd = pwd;
-	}
-	String getName() {
-		return name;
-	}
-	void setName(String name) {
 		this.name = name;
+		this.birth = birth;
+		this.regdate = regdate;
 	}
-	int getBirth() {
-		return birth;
-	}
-	void setBirth(int birth) {
+	public CustomerVO(String id, String pwd, String name, String birth) {
+		super();
+		this.id = id;
+		this.pwd = pwd;
+		this.name = name;
 		this.birth = birth;
 	}
-	String getCreatedAt() {
-		return createdAt;
+	
+	
+	
+	
+	public String getId() {
+		return id;
 	}
-	void setCreatedAt(String createdAt) {
-		this.createdAt = createdAt;
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getBirth() {
+		return birth;
+	}
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+	public String getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
 	}
 	@Override
 	public String toString() {
 		return "CustomerVO [id=" + id + ", pwd=" + pwd + ", name=" + name + ", birth=" + birth + ", createdAt="
-				+ createdAt + "]";
+				+ regdate + "]";
 	}
 	
 	

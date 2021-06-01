@@ -24,17 +24,20 @@ public class AccountUI extends BaseUI {
 			IAccountUI ui = null;
 
 			int type = start();
+			
 			switch (type) {
 			case 1:
 				ui = new LoginUI();
 				ui.execute();
+				break;
 			case 2:
 				ui = new RegisterUI();
 				ui.execute();
+				continue;
 			case 0:
 				break; // 종료
 			}
-
+			
 			while (true) {
 				try {
 					int type2 = menu();
