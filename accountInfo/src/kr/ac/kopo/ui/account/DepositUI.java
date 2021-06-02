@@ -23,10 +23,8 @@ public class DepositUI extends AccountBaseUI {
 				System.out.println("\t잘못된 계좌정보입니다. 다시입력해주세요.");
 				continue;
 			} else {
-				int amount = scanInt("\t입금하실 금액을 입력해주세요. : ") ;
-				
+				int amount = scanInt("\t입금하실 금액을 입력해주세요. : ") ;	
 				aservice.deposit(amount, accountNum);
-				System.out.println("\t"+amount+"원 입금이 완료되었습니다.");
 				break;
 			}
 		}

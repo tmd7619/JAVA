@@ -23,7 +23,7 @@ public class SearchAccountUI extends AccountBaseUI {
 				continue;
 			} else {
 				System.out.println("\t" + accountNum + "의 계좌정보");
-				System.out.println("은행명\t계좌번호\t별칭\t예금액\t예금주\t계좌생성날짜");
+				System.out.println("은행명\t계좌번호\t\t별칭\t예금액\t예금주\t계좌생성날짜");
 				System.out.println(list.get(0).getBankName()+"\t"+list.get(0).getAccount()
 							+"\t"+list.get(0).getNickname()+"\t"+list.get(0).getBalance()+"\t"+list.get(0).getCustomerName()
 							+"\t"+list.get(0).getCredate());
