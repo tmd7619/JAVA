@@ -75,31 +75,31 @@ public class AccountService {
 		Calendar cal = Calendar.getInstance();
 		AccountVO na = null;
 		Random r = new Random();
-		String newAccountNum = null; //난수가 저장될 변수
-		
+		String newAccountNum = null; // 난수가 저장될 변수
+
 		while (true) {
-			
+
 			// 계좌번호 중복체크
 			newAccountNum = "1"; // 계좌번호는 1부터 시작함
-			
-			for(int i = 0 ; i< 13; i ++) {
-				
-				if(i ==3 || i == 7) {
-					newAccountNum += "-"; 
+
+			for (int i = 0; i < 13; i++) {
+
+				if (i == 3 || i == 7) {
+					newAccountNum += "-";
 					continue;
 				}
 				newAccountNum += r.nextInt(10);
 			}
-			
+
 			String check = adao.overlapCheck(newAccountNum);
-			
-			if(check != null) continue; // 생성된 난수가, 이미 존재할때 위 과정을 다시 반복
-			
-			
+
+			if (check != null)
+				continue; // 생성된 난수가, 이미 존재할때 위 과정을 다시 반복
+
 			// 한달안에 계좌를 생성했는지 확인하는 과정
 			String latelyDate = adao.compareDate(); // 가장 최근에 계좌 생성한 날짜
 			if (latelyDate == null) {
-				System.out.println("\t"+CustomerBaseUI.getCustomer().getName()+"님은 신규계좌로 등록가능하십니다.");
+				System.out.println("\t" + CustomerBaseUI.getCustomer().getName() + "님은 신규계좌로 등록가능하십니다.");
 				newAccount.setBankName(CustomerBaseUI.getCustomer().getName()); // 예금주 정보 저장
 				newAccount.setAccount(newAccountNum);
 				na = adao.openAccount(newAccount);
@@ -118,8 +118,8 @@ public class AccountService {
 				System.out.println("아직 계좌 개설 후, 1달이 경과하지 않았습니다. 다음에 이용해주세요.");
 				break;
 			} else { // 0보다 크면, 30일 더한 생성날짜 > 현재날짜
-				
-				System.out.println(CustomerBaseUI.getCustomer().getName()+"님은 개설한지 한달이 넘었기에, 계좌개설이 가능합니다.");
+
+				System.out.println(CustomerBaseUI.getCustomer().getName() + "님은 개설한지 한달이 넘었기에, 계좌개설이 가능합니다.");
 				newAccount.setAccount(newAccountNum);
 				newAccount.setBankName(CustomerBaseUI.getCustomer().getName()); // 예금주 정보 저장
 				na = adao.openAccount(newAccount);
@@ -129,5 +129,47 @@ public class AccountService {
 		}
 		return na;
 	}
+
+	public void deleteAccount(String deleteNum) { // 계좌 해지
+
+		adao.deleteAccount(deleteNum);
+
+	}
+
+	public boolean transferAccount(String senderAccountNum, String receiverBankName, String receiverAccountNum,
+			String transferAmount) throws Exception { // 계좌 이체
+		boolean bool = false;
+		while (true) {
+
+			List<AccountVO> list = adao.searchAccount(senderAccountNum);
+			if (list.size() == 0) {
+				System.out.println("\t잘못된 계좌정보입니다. 다시 입력해주세요.");
+				break;
+			}
+			
+			list = adao.searchBank(receiverBankName);
+			if (list.size()==0) {
+				System.out.println("\t잘못된 은행명입니다. 다시 입력해주세요.");
+				break;
+			}
+			
+			list = adao.searchOtderAccount(receiverAccountNum);
+			if (list.size() == 0) {
+				System.out.println("잘못된 타인 계좌정보입니다. 다시 입력해주세요.");
+				break;
+			}
+			
+			boolean chb = adao.checkBalance(senderAccountNum, transferAmount);
+			if (chb == false) {
+				System.out.println("잔액이 부족합니다. 다른 계좌를 이용해주세요.");
+				break;
+			}	
+			bool = adao.transferAccount(senderAccountNum, receiverBankName,receiverAccountNum,transferAmount);
+			break;
+			
+			}
+		return bool;
+
+		}
 
 }

@@ -1,6 +1,7 @@
 package kr.ac.kopo.ui.account;
 
 import kr.ac.kopo.ui.AccountBaseUI;
+import kr.ac.kopo.ui.CustomerBaseUI;
 import kr.ac.kopo.vo.AccountVO;
 
 public class OpenAccountUI extends AccountBaseUI{
@@ -12,7 +13,7 @@ public class OpenAccountUI extends AccountBaseUI{
 		
 		
 		System.out.println("================================================");
-		System.out.println("\t 계좌 개설을 시작하겠습니다.");
+		System.out.println("\t" + CustomerBaseUI.getCustomer().getName() + "님의 계좌 개설하기");
 		System.out.println("================================================");
 		
 			
