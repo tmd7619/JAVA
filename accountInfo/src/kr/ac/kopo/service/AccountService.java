@@ -10,6 +10,7 @@ import kr.ac.kopo.dao.AccountDAO;
 import kr.ac.kopo.ui.AccountBaseUI;
 import kr.ac.kopo.ui.CustomerBaseUI;
 import kr.ac.kopo.vo.AccountVO;
+import kr.ac.kopo.vo.TransactionVO;
 
 public class AccountService {
 
@@ -37,36 +38,66 @@ public class AccountService {
 
 	}
 
-	public List<AccountVO> searchAccount(String accountNum) throws Exception { // 계좌번호로 게좌 조회
-
-		List<AccountVO> list = adao.searchAccount(accountNum);
-
-		return list;
-
-	}
-
-	public void updateNickname(String nickName, String accounNum) throws Exception { // 별칭 등록 및 수정
-
-		adao.updateNickname(nickName, accounNum);
+	public AccountVO searchAccount(String accountNum) throws Exception  { // 계좌번호로 게좌 조회
+		AccountVO accountInfo = null;
+		
+		accountInfo = adao.searchAccount(accountNum);
+		
+		return accountInfo;
 
 	}
 
-	public void deposit(int amount, String accountNum) throws Exception { // 계좌 입금
-		List<AccountVO> list = adao.searchAccount(accountNum);
-		AccountBaseUI.setCaccount(list); // 입력한 accountNum의 계좌정보 static 변수에 저장
+	public void updateNickname(String nicknameAccountNum, String nickname) throws Exception { // 별칭 등록 및 수정
+		
+		while (true) {	
+			boolean bool = adao.updateNickname(nicknameAccountNum, nickname);
+			if(bool) {
+				System.out.println(AccountBaseUI.getCurrentAccount().getAccount()+" 계좌의 별칭을 " + nickname+"으로 설정하였습니다.");
+				break;
+			}else {
+				System.out.println("별칭을 설정하는데 실패하였습니다. 다시 시도해주세요.");
+			}
+			
+			
+		}
+		
+		
+	}
 
-		amount = amount + Integer.parseInt(list.get(0).getBalance()); // 입력한 입금액과, 현재 잔액을 더해준다.
-		adao.deposit(Integer.toString(amount), accountNum);
+	public void deposit(String amount, String accountNum) throws Exception { // 계좌 입금
+		while (true) {
+			
+		int check = adao.deposit(amount, accountNum);
+		
+		AccountVO accountCheck = adao.searchAccount(accountNum);
+		AccountBaseUI.setCurrentAccount(accountCheck); // 입력한 accountNum의 계좌정보 static 변수에 저장
+		if (check == 1) {
+			System.out.println("\t정상적으로 입금이 완료되었습니다. 현재 잔액은 "+AccountBaseUI.getCurrentAccount().getBalance()+"원입니다 ");
+			break;
+		} else {
+			System.out.println("\t입금이 정상적으로 완료되지 않았습니다. 다시 시도해주세요.");
+			break;
+		}
+		}
 
 	}
 
-	public void withdraw(int amount, String accountNum) throws Exception { // 계좌 출금
+	public void withdraw(String amount, String accountNum) throws Exception { // 계좌 출금
+		while (true) {
 
-		List<AccountVO> list = adao.searchAccount(accountNum);
-		AccountBaseUI.setCaccount(list);
-		amount = Integer.parseInt(list.get(0).getBalance()) - amount;
-		adao.withdraw(Integer.toString(amount), accountNum);
-
+		int check = adao.withdraw(amount, accountNum);
+		
+		AccountVO accountCheck = adao.searchAccount(accountNum);
+		AccountBaseUI.setCurrentAccount(accountCheck); // 입력한 accountNum의 계좌정보 static 변수에 저장
+		if (check == 1) {
+			System.out.println("\t정상적으로 출금이 완료되었습니다. 현재 잔액은 "+AccountBaseUI.getCurrentAccount().getBalance()+"원입니다");
+			break;
+		} else {
+			System.out.println("\t출금이 정상적으로 완료되지 않았습니다. 다시 시도해주세요.");
+			break;
+		}
+		}
+		
 	}
 
 	public AccountVO openAccount(AccountVO newAccount) throws Exception { // 계좌 생성
@@ -100,7 +131,6 @@ public class AccountService {
 			String latelyDate = adao.compareDate(); // 가장 최근에 계좌 생성한 날짜
 			if (latelyDate == null) {
 				System.out.println("\t" + CustomerBaseUI.getCustomer().getName() + "님은 신규계좌로 등록가능하십니다.");
-				newAccount.setBankName(CustomerBaseUI.getCustomer().getName()); // 예금주 정보 저장
 				newAccount.setAccount(newAccountNum);
 				na = adao.openAccount(newAccount);
 				break;
@@ -130,46 +160,54 @@ public class AccountService {
 		return na;
 	}
 
-	public void deleteAccount(String deleteNum) { // 계좌 해지
+	public void deleteAccount(String deleteAccountNum) throws Exception { // 계좌 해지
 
-		adao.deleteAccount(deleteNum);
-
+		AccountVO accountCheck = adao.searchAccount(deleteAccountNum);
+		AccountBaseUI.setCurrentAccount(accountCheck); // 입력한 accountNum의 계좌정보 static 변수에 저장
+		while (true) {
+			
+			boolean bool = adao.deleteAccount(deleteAccountNum);
+			
+			if(bool) {
+				System.out.println(AccountBaseUI.getCurrentAccount().getAccount()+" 계좌를 정상적으로 해지하였습니다. 그동안 이용해주셔서 감사합니다.");
+				break;
+			}else {
+				System.out.println("계좌를 해지하는데 실패하였습니다. 다시 시도해주세요.");
+			}
+			
+			
+		}
 	}
 
-	public boolean transferAccount(String senderAccountNum, String receiverBankName, String receiverAccountNum,
+	public void transferAccount(String senderAccountNum, String receiverBankName, String receiverAccountNum,
 			String transferAmount) throws Exception { // 계좌 이체
-		boolean bool = false;
-		while (true) {
+		
+			adao.transferAccount(senderAccountNum, receiverBankName, receiverAccountNum, transferAmount);
+	}
 
-			List<AccountVO> list = adao.searchAccount(senderAccountNum);
-			if (list.size() == 0) {
-				System.out.println("\t잘못된 계좌정보입니다. 다시 입력해주세요.");
-				break;
-			}
-			
-			list = adao.searchBank(receiverBankName);
-			if (list.size()==0) {
-				System.out.println("\t잘못된 은행명입니다. 다시 입력해주세요.");
-				break;
-			}
-			
-			list = adao.searchOtderAccount(receiverAccountNum);
-			if (list.size() == 0) {
-				System.out.println("잘못된 타인 계좌정보입니다. 다시 입력해주세요.");
-				break;
-			}
-			
-			boolean chb = adao.checkBalance(senderAccountNum, transferAmount);
-			if (chb == false) {
-				System.out.println("잔액이 부족합니다. 다른 계좌를 이용해주세요.");
-				break;
-			}	
-			bool = adao.transferAccount(senderAccountNum, receiverBankName,receiverAccountNum,transferAmount);
-			break;
-			
-			}
-		return bool;
+	public List<TransactionVO> searchTransaction() { // 거래내역 조회
 
-		}
+		List<TransactionVO> list = adao.searchTransaction();
 
+		return list;
+	}
+
+	
+	public boolean checkBalance(String senderAccountNum, String transferAmount ) throws Exception { // 잔액조회
+		
+		boolean chb = adao.checkBalance(senderAccountNum, transferAmount);
+		
+		return chb;
+		
+	}
+	public AccountVO searchOtderAccount(String receiverAccountNum) {
+		
+		
+		AccountVO account = adao.searchOtderAccount(receiverAccountNum);
+		
+		return account;
+		
+	}
+	
+	
 }

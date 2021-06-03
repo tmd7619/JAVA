@@ -3,6 +3,7 @@ package kr.ac.kopo.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import kr.ac.kopo.ui.CustomerBaseUI;
 import kr.ac.kopo.util.ConnectionFactory;
 import kr.ac.kopo.util.JDBCClose;
 import kr.ac.kopo.vo.AccountVO;
+import kr.ac.kopo.vo.TransactionVO;
 
 public class AccountDAO {
 
@@ -94,18 +96,18 @@ public class AccountDAO {
 			JDBCClose.close(conn, pstmt);
 
 		}
-		
 		return list;
 
 	}
 
-	public List<AccountVO> searchAccount(String accountNum) throws Exception { // 계좌번호로 게좌 조회
+	public AccountVO searchAccount(String accountNum) throws Exception { // 계좌번호로 게좌 조회
 
 		List<AccountVO> list = new ArrayList<AccountVO>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		StringBuilder sql = new StringBuilder();
-
+		AccountVO account = new AccountVO();
+		
 		try {
 			conn = new ConnectionFactory().getConnection();
 			sql.append("select account, bankname, customer_name, balance, ");
@@ -120,7 +122,6 @@ public class AccountDAO {
 			ResultSet rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				AccountVO account = new AccountVO();
 				account.setAccount(rs.getString(1));
 				account.setBankName(rs.getString(2));
 				account.setCustomerName(rs.getString(3));
@@ -128,100 +129,127 @@ public class AccountDAO {
 				account.setNickname(rs.getString(5));
 				account.setCustomerID(rs.getString(6));
 				account.setCredate(rs.getString("credate"));
-
-				list.add(account);
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			JDBCClose.close(conn, pstmt);
 
 		}
-		return list;
+		return account;
 
 	}
 
-	public void updateNickname(String nickName, String accountNum) { // 별칭 설정
+	public boolean updateNickname(String nicknameAccountNum, String nickname) { // 별칭 설정
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		StringBuilder sql = new StringBuilder();
-
+		boolean check = false;
+		
 		try {
 			conn = new ConnectionFactory().getConnection();
 			sql.append("update account_info set nickname = ? where customer_id = ? and  account = ?  ");
 			pstmt = conn.prepareStatement(sql.toString());
 
-			pstmt.setString(1, nickName);
+			pstmt.setString(1, nickname);
 			pstmt.setString(2, CustomerBaseUI.getCustomer().getId());
-			pstmt.setString(3, accountNum);
+			pstmt.setString(3, nicknameAccountNum);
 
 			pstmt.executeUpdate();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			JDBCClose.close(conn, pstmt);
-		}
-	}
-	
-	public void deposit(String amount, String accountNum) { // 계좌 입금
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		StringBuilder sql = new StringBuilder();
-		
-		try {
-			conn = new ConnectionFactory().getConnection();
-			sql.append("update account_info set balance = ? where customer_id = ? and account = ?  ");
-			pstmt = conn.prepareStatement(sql.toString());
-
-			pstmt.setInt(1, Integer.parseInt(amount));
-			pstmt.setString(2, CustomerBaseUI.getCustomer().getId());
-			pstmt.setString(3, accountNum);
-
-			int a = pstmt.executeUpdate(); // 성공하면 1 이상, 실패하면 0을 리턴
-			
-			if( a >= 1 ) {
-				System.out.println("정상적으로 입금이 완료되었습니다. 현재 잔액은 "+amount+"원입니다.");
-			}else {
-				System.out.println("입금이 정상적으로 처리되지 않았습니다. 다시 시도해주세요.");
-				
-			}
-			
-
-			
+			check = true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			JDBCClose.close(conn, pstmt);
 		}
 		
+		return check;
 	}
 	
-	public void withdraw(String amount, String accountNum) { // 출금
-		
+	public int deposit(String amount, String accountNum) { // 계좌 입금
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2 = null;
 		StringBuilder sql = new StringBuilder();
+		StringBuilder sql2 = new StringBuilder();
+		System.out.println(accountNum);
+		
+		int check = 0;
 		
 		try {
 			conn = new ConnectionFactory().getConnection();
-			sql.append("update account_info set balance = ? where customer_id = ? and account = ? ");
+			sql.append("update account_info set balance = balance + ? where customer_id = ? and account = ?  ");
+			pstmt = conn.prepareStatement(sql.toString());
+
+			pstmt.setInt(1, Integer.parseInt(amount));
+			pstmt.setString(2, CustomerBaseUI.getCustomer().getId());
+			pstmt.setString(3, accountNum);
+
+			pstmt.executeUpdate(); // 성공하면 1 이상, 실패하면 0을 리턴
+			
+			sql2.append(" INSERT INTO TRANSACTION_HISTORY(TID,TRAN_ACCOUNT,TRAN_TYPE,TRAN_AMOUNT,TRAN_BANKNAME,TRAN_BALANCE) " );
+			sql2.append(" VALUES(TRAN_SEQ.NEXTVAL, ? , ? , ? , " );
+			sql2.append(" (SELECT BANKNAME FROM ACCOUNT_INFO WHERE ACCOUNT = ? ) , " );
+			sql2.append(" (SELECT BALANCE FROM ACCOUNT_INFO WHERE ACCOUNT = ? )) " );
+			
+			pstmt2 = conn.prepareStatement(sql2.toString());
+
+			
+			pstmt2.setString(1, accountNum);
+			pstmt2.setString(2, "계좌입금");
+			pstmt2.setInt(3, Integer.parseInt(amount));
+			pstmt2.setString(4, accountNum);
+			pstmt2.setString(5, accountNum);
+			
+			pstmt2.executeUpdate();
+			check++;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCClose.close(conn, pstmt);
+		}
+		
+		return check;
+		
+	}
+	
+	public int withdraw(String amount, String accountNum) { // 출금
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2 = null;
+		StringBuilder sql = new StringBuilder();
+		StringBuilder sql2 = new StringBuilder();
+		int check = 0;
+		
+		try {
+			conn = new ConnectionFactory().getConnection();
+			sql.append("update account_info set balance = balance - ? where customer_id = ? and account = ? ");
 			pstmt = conn.prepareStatement(sql.toString());
 			
 			pstmt.setInt(1, Integer.parseInt(amount));
 			pstmt.setString(2, CustomerBaseUI.getCustomer().getId());
 			pstmt.setString(3, accountNum);
+	
+			pstmt.executeUpdate(); // 성공하면 1 이상, 실패하면 0을 리턴
 			
+			sql2.append(" INSERT INTO TRANSACTION_HISTORY(TID,TRAN_ACCOUNT,TRAN_TYPE,TRAN_AMOUNT,TRAN_BANKNAME,TRAN_BALANCE) " );
+			sql2.append(" VALUES(TRAN_SEQ.NEXTVAL, ? , ? , ? , " );
+			sql2.append(" (SELECT BANKNAME FROM ACCOUNT_INFO WHERE ACCOUNT = ? ) , " );
+			sql2.append(" (SELECT BALANCE FROM ACCOUNT_INFO WHERE ACCOUNT = ? )) " );
+			
+			pstmt2 = conn.prepareStatement(sql2.toString());
 
-			int a = pstmt.executeUpdate(); // 성공하면 1 이상, 실패하면 0을 리턴
 			
-			if( a >= 1 ) {
-				System.out.println("정상적으로 출금이 완료되었습니다. 현재 잔액은 "+amount+"원입니다.");
-			}else {
-				System.out.println("출금이 정상적으로 처리되지 않았습니다. 다시 시도해주세요.");
-				
-			}
+			pstmt2.setString(1, accountNum);
+			pstmt2.setString(2, "계좌출금");
+			pstmt2.setInt(3, Integer.parseInt(amount));
+			pstmt2.setString(4, accountNum);
+			pstmt2.setString(5, accountNum);
+			
+			pstmt2.executeUpdate();
+
+			check++;
 			
 			
 		} catch (Exception e) {
@@ -229,7 +257,11 @@ public class AccountDAO {
 		}finally {
 			JDBCClose.close(conn, pstmt);
 		}
+		
+		return check;
 	}
+	
+		
 	
 
 	public AccountVO openAccount(AccountVO newAccount) { // 계좌개설
@@ -240,15 +272,15 @@ public class AccountDAO {
 		
 		try {
 			conn = new ConnectionFactory().getConnection();
-			sql.append(" INSERT INTO ACCOUNT_INFO(ACCOUNT,BANKNAME,CUSTOMER_NAME,CUSTOMER_ID) ");
-			sql.append(" VALUES(? , ?, ? ,? ) ");
+			sql.append(" INSERT INTO ACCOUNT_INFO(ACCOUNT,BANKNAME,CUSTOMER_NAME,CUSTOMER_ID,NICKNAME) ");
+			sql.append(" VALUES(? , ?, ? ,?, ?) ");
 			
 			pstmt = conn.prepareStatement(sql.toString());
 			pstmt.setString(1,newAccount.getAccount());
 			pstmt.setString(2,newAccount.getBankName());
 			pstmt.setString(3,CustomerBaseUI.getCustomer().getName());
 			pstmt.setString(4,CustomerBaseUI.getCustomer().getId());
-			
+			pstmt.setString(5, newAccount.getNickname());
 			pstmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -268,8 +300,8 @@ public class AccountDAO {
 		String latelyDate = null;
 		try {
 			conn = new ConnectionFactory().getConnection();
-			sql.append("SELECT credate FROM (SELECT CREDATE FROM ACCOUNT_INFO ORDER BY CREDATE DESC) A  ");
-			sql.append(" WHERE ROWNUM =1 AND customer_id = ?  ");
+			sql.append("SELECT credate FROM (SELECT CREDATE,CUSTOMER_ID FROM ACCOUNT_INFO ORDER BY CREDATE DESC) A  ");
+			sql.append(" WHERE ROWNUM =1 AND CUSTOMER_ID = ?  ");
 			pstmt = conn.prepareStatement(sql.toString());
 			
 			pstmt.setString(1, CustomerBaseUI.getCustomer().getId());
@@ -297,7 +329,7 @@ public class AccountDAO {
 		try {
 			conn = new ConnectionFactory().getConnection();
 			sql.append("SELECT ACCOUNT FROM ACCOUNT_INFO   ");
-			sql.append(" WHERE ACCOUNT = ? AND customer_id = ?  ");
+			sql.append(" WHERE ACCOUNT = ? AND CUSTOMER_ID = ?  ");
 			pstmt = conn.prepareStatement(sql.toString());
 			
 			pstmt.setString(1, checkNum);
@@ -318,11 +350,11 @@ public class AccountDAO {
 		
 	}
 
-	public void deleteAccount(String deleteNum) {
+	public boolean deleteAccount(String deleteAccountNum) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		StringBuilder sql = new StringBuilder();
-		String check = null;
+		boolean check = false;
 		
 		try {
 			conn = new ConnectionFactory().getConnection();
@@ -330,35 +362,29 @@ public class AccountDAO {
 			pstmt = conn.prepareStatement(sql.toString());
 			
 			pstmt.setString(1, CustomerBaseUI.getCustomer().getId());
-			pstmt.setString(2, deleteNum);
+			pstmt.setString(2, deleteAccountNum);
 			
-			int a = pstmt.executeUpdate(); // 성공하면 1 이상, 실패하면 0을 리턴
-			
-			if( a >= 1 ) {
-				System.out.println("\t정상적으로 계좌가 해지되었습니다. 그동안 이용해주셔서 감사합니다.");
-			}else {
-				System.out.println("\t계좌 해지가 정상적으로 완료되지 않았습니다. 다시 시도해주세요.");
-				
-			}
-			
+			pstmt.executeUpdate(); 
+			check = true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			JDBCClose.close(conn, pstmt);
 		}
-		
+		return check;
 		
 	}
 
-	public boolean transferAccount(String senderAccountNum, String receiverBankName, String receiverAccountNum,  // 계좌이체
-			String transferAmount) throws Exception {
+	public void transferAccount(String senderAccountNum, String receiverBankName, String receiverAccountNum,  // 계좌이체
+			String transferAmount)  {
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		PreparedStatement pstmt2 = null;
-		StringBuilder sql = new StringBuilder();
-		StringBuilder sql2 = new StringBuilder();
-		
+		PreparedStatement pstmt3 = null;
+		StringBuilder sql = new StringBuilder(); // 내 계좌 출금 쿼리문
+		StringBuilder sql2 = new StringBuilder(); // 상대방 계좌 입금 쿼리문
+		StringBuilder sql3 = new StringBuilder();
 		boolean bool = false;
 		
 		try {
@@ -373,29 +399,56 @@ public class AccountDAO {
 			pstmt.setString(2, CustomerBaseUI.getCustomer().getId());
 			pstmt.setString(3, senderAccountNum);
 			
-			pstmt.executeUpdate(); // 성공하면 1 이상, 실패하면 0을 리턴
-			
+			pstmt.executeUpdate(); 
+//-----------------------------------------------------------------------------------------------			
 			sql2.append("UPDATE ACCOUNT_INFO SET BALANCE = BALANCE + ? WHERE  account = ? ");
 			pstmt2 = conn.prepareStatement(sql2.toString());
 			pstmt2.setInt(1, Integer.parseInt(transferAmount));
 			pstmt2.setString(2, receiverAccountNum);
 			
 			pstmt2.executeUpdate() ;
+//-----------------------------------------------------------------------------------------------			
+			sql3.append("INSERT ALL INTO TRANSACTION_HISTORY(TID, " );
+			sql3.append(" TRAN_ACCOUNT,TRAN_TYPE,TRAN_AMOUNT,TRAN_BANKNAME,TRAN_BALANCE) " );
+			sql3.append(" VALUES(TRAN_SEQ.NEXTVAL, ? , ? , ? ,(SELECT BANKNAME FROM ACCOUNT_INFO WHERE ACCOUNT = ?) , " );
+			sql3.append(" (SELECT BALANCE FROM ACCOUNT_INFO WHERE ACCOUNT = ? )) " );
+			sql3.append(" INTO TRANSACTION_HISTORY(TID,TRAN_ACCOUNT,TRAN_TYPE,TRAN_AMOUNT,TRAN_BANKNAME,TRAN_BALANCE) " );
+			sql3.append(" VALUES(TRAN_SEQ.NEXTVAL, ? , ? , ? , ? ,  " );
+			sql3.append(" (SELECT BALANCE FROM ACCOUNT_INFO WHERE ACCOUNT = ? )) " );
+			sql3.append(" SELECT * FROM DUAL ");
+			pstmt3 = conn.prepareStatement(sql3.toString());
+			
+			pstmt3.setString(1, senderAccountNum);
+			pstmt3.setString(2, "이체출금");
+			pstmt3.setInt(3, Integer.parseInt(transferAmount));
+			pstmt3.setString(4, senderAccountNum);
+			pstmt3.setString(5, senderAccountNum);
+			
+			pstmt3.setString(6, receiverAccountNum);
+			pstmt3.setString(7, "이체입금");
+			pstmt3.setInt(8, Integer.parseInt(transferAmount));
+			pstmt3.setString(9, receiverBankName);
+			pstmt3.setString(10, receiverAccountNum);
+			
+			pstmt3.executeUpdate() ;
+
+			
 			
 
 			conn.commit(); // 계좌이체가 정상적으로 완료된 경우, 커밋 // 가장 마지막에 수행
 			bool = true;
 		} catch (Exception e) {
-			System.out.println("\t계좌 이체가 정상적으로 완료되지 않았습니다. 다시 시도해주세요.");	
-			conn.rollback(); // 계좌이체 도중, 에러가 발생할 경우 롤백
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				System.out.println("\t계좌 이체가 정상적으로 완료되지 않았습니다. 다시 시도해주세요.");	
+			}
+			e.printStackTrace();
 		}finally {
 			JDBCClose.close(conn, pstmt);
 		}
 		
-		return bool;
-		
-		
-		
+
 	}
 
 	public boolean checkBalance(String senderAccountNum, String transferAmount) { // 잔액체크
@@ -437,8 +490,8 @@ public class AccountDAO {
 		
 	}
 
-	public List<AccountVO> searchOtderAccount(String receiverAccountNum) {
-		List<AccountVO> list = new ArrayList<AccountVO>();
+	public AccountVO searchOtderAccount(String receiverAccountNum) {
+		AccountVO account = new AccountVO();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		StringBuilder sql = new StringBuilder();
@@ -454,7 +507,7 @@ public class AccountDAO {
 			ResultSet rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				AccountVO account = new AccountVO();
+				account = new AccountVO();
 				account.setAccount(rs.getString(1));
 				account.setBankName(rs.getString(2));
 				account.setCustomerName(rs.getString(3));
@@ -463,7 +516,6 @@ public class AccountDAO {
 				account.setCustomerID(rs.getString(6));
 				account.setCredate(rs.getString("credate"));
 
-				list.add(account);
 			}
 
 		} catch (Exception e) {
@@ -472,6 +524,47 @@ public class AccountDAO {
 			JDBCClose.close(conn, pstmt);
 
 		}
+		return account;
+	}
+
+	public List<TransactionVO> searchTransaction() { // 거래내역 조회하기
+		List<TransactionVO> list = new ArrayList<TransactionVO>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		StringBuilder sql = new StringBuilder();
+
+
+		try {
+
+			conn = new ConnectionFactory().getConnection();
+			sql.append("SELECT T.TID,T.TRAN_BANKNAME,T.TRAN_ACCOUNT,T.TRAN_TYPE,T.TRAN_AMOUNT , T.TRAN_BALANCE, ");
+			sql.append("  T.TRAN_DATE FROM ACCOUNT_INFO A , TRANSACTION_HISTORY T ");
+			sql.append(" WHERE A.ACCOUNT = T.TRAN_ACCOUNT AND A.CUSTOMER_ID = ? ORDER BY T.TRAN_DATE DESC  ");
+
+			pstmt = conn.prepareStatement(sql.toString());
+			
+			pstmt.setString(1, CustomerBaseUI.getCustomer().getId());
+
+			
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				TransactionVO transaction = new TransactionVO();
+				transaction.setTranId(rs.getString("TID"));
+				transaction.setTranBankname(rs.getString("TRAN_BANKNAME"));
+				transaction.setTranAccount(rs.getString("TRAN_ACCOUNT"));
+				transaction.setTranType(rs.getString("TRAN_TYPE"));
+				transaction.setTranAmount(rs.getString("TRAN_AMOUNT"));
+				transaction.setTranBalance(rs.getString("TRAN_BALANCE"));
+				transaction.setTranDate(rs.getString("TRAN_DATE"));
+				list.add(transaction);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCClose.close(conn, pstmt);
+		}
+
 		return list;
 	}
 	

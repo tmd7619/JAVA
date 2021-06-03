@@ -1,7 +1,10 @@
 package kr.ac.kopo.ui.account;
 
+import java.util.List;
+
 import kr.ac.kopo.ui.AccountBaseUI;
 import kr.ac.kopo.ui.CustomerBaseUI;
+import kr.ac.kopo.vo.AccountVO;
 
 public class TransferUI extends AccountBaseUI {
 
@@ -14,18 +17,60 @@ public class TransferUI extends AccountBaseUI {
 		String receiverBankName = null;
 		String receiverAccountNum = null;
 		String transferAmount = null; // 이체 금액
+		loop1: while (true) {
+			while (true) {
+				senderAccountNum = scanStr("\t이체할 본인의 계좌번호를 입력해주세요 : ");
+				AccountVO accountCheck = aservice.searchAccount(senderAccountNum);
+				if (accountCheck.getAccount() == null) {
+					System.out.println("\t잘못된 계좌정보입니다. 다시 입력해주세요.");
+					System.out.println();
+					continue;
+				} else
+					break;
+			}
+			while (true) {
+				receiverBankName = scanStr("\t이체할 상대방의 은행명을 입력해주세요 : ");
+				List<AccountVO> list = aservice.searchBank(receiverBankName);
+				if (list.size() == 0) {
+					System.out.println("\t잘못된 은행명입니다. 다시 입력해주세요.");
+					System.out.println();
+					continue;
+				} else
+					break;
+			}
 
-		while (true) {
-			senderAccountNum = scanStr("\t이체할 본인의 계좌번호를 입력해주세요 : ");
-			receiverBankName = scanStr("\t이체할 상대방의 은행명을 입력해주세요 : ");
-			receiverAccountNum = scanStr("\t이체할 계좌번호를 입력해주세요 : ");
-			transferAmount = scanStr("\t이체할 금액을 입력해주세요 : ");
-			
-			boolean bool = aservice.transferAccount(senderAccountNum, receiverBankName, receiverAccountNum, transferAmount);
-			if(bool) break;
-			else continue; 
+			while (true) {
+				receiverAccountNum = scanStr("\t이체할 상대방의 계좌번호를 입력해주세요 : ");
+				AccountVO accountCheck = aservice.searchOtderAccount(receiverAccountNum);
+				if (accountCheck.getAccount() == null ){
+					System.out.println("\t잘못된 타인 계좌정보입니다. 다시 입력해주세요.");
+					System.out.println();
+					continue;
+				} else if(receiverAccountNum.equals(senderAccountNum)) {
+					System.out.println("\t본인의 계좌번호입니다. 타인의 계좌번호를 입력해주세요.");
+					System.out.println();
+				}else
+					break;
+
+			}
+
+			while (true) {
+				transferAmount = scanStr("\t이체할 금액을 입력해주세요 : ");
+				boolean checkBalance = aservice.checkBalance(senderAccountNum, transferAmount);
+				if (checkBalance == false) {
+					System.out.println("\t잔액이 부족합니다. 다른 계좌를 이용해주세요.");
+					System.out.println();
+					continue loop1;
+				} else break;
+
+			}
+
+			aservice.transferAccount(senderAccountNum, receiverBankName, receiverAccountNum,
+					transferAmount);
+
+			System.out.println("\t정상적으로 "+transferAmount+"원이 송금되었습니다.");
+			break;
 		}
-		System.out.println("\t정상적으로 계좌이체가 완료되었습니다.");
 	}
 
 }

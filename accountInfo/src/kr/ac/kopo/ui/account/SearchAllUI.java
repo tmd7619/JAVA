@@ -22,7 +22,7 @@ public class SearchAllUI extends AccountBaseUI {
 			System.out.println("\t조회할 계좌가 없습니다.");
 
 		} else {
-			System.out.println("별칭\t계좌번호\t\t예금액\t계좌생성날짜");
+			System.out.println("별칭\t계좌번호\t\t예금액\t\t\t계좌생성날짜");
 			for (int i = 0; i < list.size(); i++) {
 				if (list.get(i).getBankName().equals("하나은행")) {
 					System.out.println(list.get(i).getNickname() + "\t" + list.get(i).getAccount() + "\t"
