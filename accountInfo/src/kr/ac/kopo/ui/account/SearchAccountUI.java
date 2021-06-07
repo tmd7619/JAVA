@@ -2,7 +2,7 @@ package kr.ac.kopo.ui.account;
 
 import kr.ac.kopo.ui.AccountBaseUI;
 import kr.ac.kopo.ui.CustomerBaseUI;
-import kr.ac.kopo.vo.AccountVO;
+import kr.ac.kopo.vo.Account;
 
 public class SearchAccountUI extends AccountBaseUI {
 
@@ -14,7 +14,7 @@ public class SearchAccountUI extends AccountBaseUI {
 			System.out.println("================================================");
 			String accountNum = scanStr("\t조회하실 계좌번호를 입력해주세요 : ");
 
-			AccountVO accountInfo = aservice.searchAccount(accountNum);
+			Account accountInfo = aservice.searchAccount(accountNum);
 			if(accountInfo.getAccount() != null ) {
 				System.out.println("\t" + accountNum + "의 계좌정보");
 				System.out.println("은행명\t계좌번호\t\t별칭\t예금액\t\t예금주\t계좌생성날짜");

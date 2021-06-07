@@ -4,14 +4,14 @@ import java.util.List;
 
 import kr.ac.kopo.ui.AccountBaseUI;
 import kr.ac.kopo.ui.CustomerBaseUI;
-import kr.ac.kopo.vo.AccountVO;
+import kr.ac.kopo.vo.Account;
 
 public class SearchAllUI extends AccountBaseUI {
 
 	@Override
 	public void execute() throws Exception {
 
-		List<AccountVO> list = aservice.searchAll();
+		List<Account> list = aservice.searchAll();
 
 		System.out.println("================================================");
 		System.out.println("\t" + CustomerBaseUI.getCustomer().getName() + "님의 전체 계좌 조회하기");
@@ -22,7 +22,7 @@ public class SearchAllUI extends AccountBaseUI {
 			System.out.println("\t조회할 계좌가 없습니다.");
 
 		} else {
-			System.out.println("별칭\t계좌번호\t\t예금액\t\t\t계좌생성날짜");
+			System.out.println("별칭\t계좌번호\t\t예금액\t계좌생성날짜");
 			for (int i = 0; i < list.size(); i++) {
 				if (list.get(i).getBankName().equals("하나은행")) {
 					System.out.println(list.get(i).getNickname() + "\t" + list.get(i).getAccount() + "\t"

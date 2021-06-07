@@ -1,14 +1,14 @@
 package kr.ac.kopo.ui.customer;
 
 import kr.ac.kopo.ui.CustomerBaseUI;
-import kr.ac.kopo.vo.CustomerVO;
+import kr.ac.kopo.vo.Customer;
 
 public class LoginUI extends CustomerBaseUI {
 
 	@Override
 	public void execute() throws Exception {
 	
-		CustomerVO customer = null;
+		Customer customer = null;
 		while (true) {
 			System.out.println("================================================");
 			String id = scanStr("\t아이디를 입력하세요 : ");

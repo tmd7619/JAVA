@@ -1,6 +1,6 @@
 package kr.ac.kopo.vo;
 
-public class TransactionVO { // 거래내역 VO
+public class Transaction { // 거래내역 VO
 	
 	private String tranId; // 거래일련번호
 	private String tranAccount; // 거래 계좌

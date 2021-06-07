@@ -1,6 +1,6 @@
 package kr.ac.kopo.ui;
 
-import kr.ac.kopo.vo.CustomerVO;
+import kr.ac.kopo.vo.Customer;
 
 
 /*
@@ -9,13 +9,13 @@ import kr.ac.kopo.vo.CustomerVO;
 
 public abstract class CustomerBaseUI extends BaseUI {
 	
-	private static CustomerVO ccustomer ;
+	private static Customer ccustomer ;
 
-	public static CustomerVO getCustomer() {
+	public static Customer getCustomer() {
 		return ccustomer;
 	}
 
-	public static void setCustomer(CustomerVO customer) {
+	public static void setCustomer(Customer customer) {
 		CustomerBaseUI.ccustomer = customer;
 	}
 	

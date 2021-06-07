@@ -1,7 +1,7 @@
 package kr.ac.kopo.service;
 
 import kr.ac.kopo.dao.CustomerDAO;
-import kr.ac.kopo.vo.CustomerVO;
+import kr.ac.kopo.vo.Customer;
 
 public class CustomerService {
 
@@ -13,21 +13,21 @@ public class CustomerService {
 
 	}
 
-	public CustomerVO login(String id, String pwd) throws Exception { // 로그인
+	public Customer login(String id, String pwd) throws Exception { // 로그인
 
-		CustomerVO customer = cdao.login(id, pwd);
+		Customer customer = cdao.login(id, pwd);
 
 		return customer;
 	}
 
-	public CustomerVO overlapCheck(String id) throws Exception { // 아이디 중복 체크 메서드
+	public Customer overlapCheck(String id) throws Exception { // 아이디 중복 체크 메서드
 
-		CustomerVO customer = cdao.overlapCheck(id);
+		Customer customer = cdao.overlapCheck(id);
 		return customer;
 
 	}
 
-	public void register(CustomerVO newCustomer) throws Exception{ // 회원가입
+	public void register(Customer newCustomer) throws Exception{ // 회원가입
 		
 		cdao.register(newCustomer);
 		

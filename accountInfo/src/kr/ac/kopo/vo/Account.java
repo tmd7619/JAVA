@@ -1,6 +1,6 @@
 package kr.ac.kopo.vo;
 
-public class AccountVO {
+public class Account {
 	
 	private String account ; // 계좌번호
 	private String bankName; // 은행명

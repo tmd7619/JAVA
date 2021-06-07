@@ -1,7 +1,7 @@
 package kr.ac.kopo.ui.customer;
 
 import kr.ac.kopo.ui.BaseUI;
-import kr.ac.kopo.vo.CustomerVO;
+import kr.ac.kopo.vo.Customer;
 
 public class RegisterUI extends BaseUI{
 
@@ -29,7 +29,7 @@ public class RegisterUI extends BaseUI{
 			String name = scanStr("\t이름을 입력하세요 : ");
 			String birth = scanStr("\t생년월일을 입력하세요 ex)951126 : ");
 			
-			CustomerVO newCustomer = new CustomerVO(id,pwd,name,birth);
+			Customer newCustomer = new Customer(id,pwd,name,birth);
 			
 			cservice.register(newCustomer);
 			break;

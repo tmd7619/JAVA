@@ -6,13 +6,13 @@ import java.sql.ResultSet;
 
 import kr.ac.kopo.util.ConnectionFactory;
 import kr.ac.kopo.util.JDBCClose;
-import kr.ac.kopo.vo.CustomerVO;
+import kr.ac.kopo.vo.Customer;
 
 
 public class CustomerDAO {
 	
 	//회원가입
-	   public void register(CustomerVO customer) {
+	   public void register(Customer customer) {
 	      Connection conn = null;
 	      PreparedStatement pstmt = null;
 	      
@@ -43,8 +43,8 @@ public class CustomerDAO {
 	   }
 
 	   //로그인
-	   public CustomerVO login(String id, String pwd) {
-		  CustomerVO customer = null;
+	   public Customer login(String id, String pwd) {
+		  Customer customer = null;
 	      Connection conn = null;
 	      PreparedStatement pstmt = null;
 	      
@@ -66,7 +66,7 @@ public class CustomerDAO {
 	         ResultSet rs = pstmt.executeQuery();
 	         
 	         if(rs.next()) {
-	            customer = new CustomerVO();
+	            customer = new Customer();
 	            customer.setId(rs.getString("id"));
 	            customer.setPwd(rs.getString("pwd"));
 	            customer.setName(rs.getString("name"));
@@ -83,8 +83,8 @@ public class CustomerDAO {
 	   }
 	   
 	   // 아이디 중복체크
-	   public CustomerVO overlapCheck(String id) {
-		   CustomerVO customer = null;
+	   public Customer overlapCheck(String id) {
+		   Customer customer = null;
 		      Connection conn = null;
 		      PreparedStatement pstmt = null;
 		      try {
@@ -104,7 +104,7 @@ public class CustomerDAO {
 			         ResultSet rs = pstmt.executeQuery();
 			         
 			         if(rs.next()) {
-			            customer = new CustomerVO();
+			            customer = new Customer();
 			            customer.setId(rs.getString("id"));
 			            
 			         }

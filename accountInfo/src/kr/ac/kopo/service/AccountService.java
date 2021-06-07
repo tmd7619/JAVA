@@ -9,8 +9,8 @@ import java.util.Random;
 import kr.ac.kopo.dao.AccountDAO;
 import kr.ac.kopo.ui.AccountBaseUI;
 import kr.ac.kopo.ui.CustomerBaseUI;
-import kr.ac.kopo.vo.AccountVO;
-import kr.ac.kopo.vo.TransactionVO;
+import kr.ac.kopo.vo.Account;
+import kr.ac.kopo.vo.Transaction;
 
 public class AccountService {
 
@@ -22,24 +22,24 @@ public class AccountService {
 
 	}
 
-	public List<AccountVO> searchAll() throws Exception { // 전체 계좌 조회
+	public List<Account> searchAll() throws Exception { // 전체 계좌 조회
 
-		List<AccountVO> list = adao.searchAll();
-
-		return list;
-
-	}
-
-	public List<AccountVO> searchBank(String bankName) throws Exception { // 은행별 계좌 조회
-
-		List<AccountVO> list = adao.searchBank(bankName);
+		List<Account> list = adao.searchAll();
 
 		return list;
 
 	}
 
-	public AccountVO searchAccount(String accountNum) throws Exception  { // 계좌번호로 게좌 조회
-		AccountVO accountInfo = null;
+	public List<Account> searchBank(String bankName) throws Exception { // 은행별 계좌 조회
+
+		List<Account> list = adao.searchBank(bankName);
+
+		return list;
+
+	}
+
+	public Account searchAccount(String accountNum) throws Exception  { // 계좌번호로 게좌 조회
+		Account accountInfo = null;
 		
 		accountInfo = adao.searchAccount(accountNum);
 		
@@ -69,7 +69,7 @@ public class AccountService {
 			
 		int check = adao.deposit(amount, accountNum);
 		
-		AccountVO accountCheck = adao.searchAccount(accountNum);
+		Account accountCheck = adao.searchAccount(accountNum);
 		AccountBaseUI.setCurrentAccount(accountCheck); // 입력한 accountNum의 계좌정보 static 변수에 저장
 		if (check == 1) {
 			System.out.println("\t정상적으로 입금이 완료되었습니다. 현재 잔액은 "+AccountBaseUI.getCurrentAccount().getBalance()+"원입니다 ");
@@ -87,7 +87,7 @@ public class AccountService {
 
 		int check = adao.withdraw(amount, accountNum);
 		
-		AccountVO accountCheck = adao.searchAccount(accountNum);
+		Account accountCheck = adao.searchAccount(accountNum);
 		AccountBaseUI.setCurrentAccount(accountCheck); // 입력한 accountNum의 계좌정보 static 변수에 저장
 		if (check == 1) {
 			System.out.println("\t정상적으로 출금이 완료되었습니다. 현재 잔액은 "+AccountBaseUI.getCurrentAccount().getBalance()+"원입니다");
@@ -100,11 +100,11 @@ public class AccountService {
 		
 	}
 
-	public AccountVO openAccount(AccountVO newAccount) throws Exception { // 계좌 생성
+	public Account openAccount(Account newAccount) throws Exception { // 계좌 생성
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Calendar cal = Calendar.getInstance();
-		AccountVO na = null;
+		Account na = null;
 		Random r = new Random();
 		String newAccountNum = null; // 난수가 저장될 변수
 
@@ -151,7 +151,7 @@ public class AccountService {
 
 				System.out.println(CustomerBaseUI.getCustomer().getName() + "님은 개설한지 한달이 넘었기에, 계좌개설이 가능합니다.");
 				newAccount.setAccount(newAccountNum);
-				newAccount.setBankName(CustomerBaseUI.getCustomer().getName()); // 예금주 정보 저장
+				newAccount.setCustomerName(CustomerBaseUI.getCustomer().getName()); // 예금주 정보 저장
 				na = adao.openAccount(newAccount);
 				break;
 			}
@@ -162,7 +162,7 @@ public class AccountService {
 
 	public void deleteAccount(String deleteAccountNum) throws Exception { // 계좌 해지
 
-		AccountVO accountCheck = adao.searchAccount(deleteAccountNum);
+		Account accountCheck = adao.searchAccount(deleteAccountNum);
 		AccountBaseUI.setCurrentAccount(accountCheck); // 입력한 accountNum의 계좌정보 static 변수에 저장
 		while (true) {
 			
@@ -185,9 +185,9 @@ public class AccountService {
 			adao.transferAccount(senderAccountNum, receiverBankName, receiverAccountNum, transferAmount);
 	}
 
-	public List<TransactionVO> searchTransaction() { // 거래내역 조회
+	public List<Transaction> searchTransaction() { // 거래내역 조회
 
-		List<TransactionVO> list = adao.searchTransaction();
+		List<Transaction> list = adao.searchTransaction();
 
 		return list;
 	}
@@ -200,10 +200,10 @@ public class AccountService {
 		return chb;
 		
 	}
-	public AccountVO searchOtderAccount(String receiverAccountNum) {
+	public Account searchOtderAccount(String receiverAccountNum) {
 		
 		
-		AccountVO account = adao.searchOtderAccount(receiverAccountNum);
+		Account account = adao.searchOtderAccount(receiverAccountNum);
 		
 		return account;
 		

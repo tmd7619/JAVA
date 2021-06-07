@@ -2,13 +2,13 @@ package kr.ac.kopo.ui.account;
 
 import kr.ac.kopo.ui.AccountBaseUI;
 import kr.ac.kopo.ui.CustomerBaseUI;
-import kr.ac.kopo.vo.AccountVO;
+import kr.ac.kopo.vo.Account;
 
 public class OpenAccountUI extends AccountBaseUI {
 
 	@Override
 	public void execute() throws Exception {
-		AccountVO na = null;
+		Account na = null;
 		
 		System.out.println("================================================");
 		System.out.println("\t" + CustomerBaseUI.getCustomer().getName() + "님의 계좌 개설하기");
@@ -16,8 +16,8 @@ public class OpenAccountUI extends AccountBaseUI {
 		while(true) {
 			
 		String bankName = scanStr("\t개설하실 은행명을 입력하세요 : ");
-		if( ! (bankName.equals("하나은행")  && bankName.equals("국민은행") && bankName.equals("기업은행")        
-				&& bankName.equals("신한은행") && bankName.equals("우리은행")) ){
+		if( ! (bankName.equals("하나은행")  || bankName.equals("국민은행") || bankName.equals("기업은행")        
+				|| bankName.equals("신한은행") || bankName.equals("우리은행")) ){
 			System.out.println("\t잘못된 은행명입니다. 다시 입력해주세요");
 			System.out.println();
 			continue;
@@ -26,7 +26,7 @@ public class OpenAccountUI extends AccountBaseUI {
 		
 		String nickName = scanStr("\t계좌 별칭을 지정해주세요(생략가능) :");	
 		
-		AccountVO newAccount = new AccountVO();
+		Account newAccount = new Account();
 		newAccount.setBankName(bankName);
 		newAccount.setNickname(nickName);
 		

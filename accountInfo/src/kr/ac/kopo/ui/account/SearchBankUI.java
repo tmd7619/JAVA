@@ -4,7 +4,7 @@ import java.util.List;
 
 import kr.ac.kopo.ui.AccountBaseUI;
 import kr.ac.kopo.ui.CustomerBaseUI;
-import kr.ac.kopo.vo.AccountVO;
+import kr.ac.kopo.vo.Account;
 
 public class SearchBankUI extends AccountBaseUI {
 
@@ -17,7 +17,7 @@ public class SearchBankUI extends AccountBaseUI {
 			System.out.println("================================================");
 			String bankName = scanStr("\t조회하실 은행명을 입력해주세요 ex)xx은행 : ");
 
-			List<AccountVO> list = aservice.searchBank(bankName);
+			List<Account> list = aservice.searchBank(bankName);
 
 			if (list.size() == 0) {
 				System.out.println("\t" + bankName + "에는 조회할 수 있는 계좌가 없습니다.");

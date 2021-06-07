@@ -1,15 +1,15 @@
 package kr.ac.kopo.ui;
 
-import kr.ac.kopo.ui.account.DeleteUI;
-import kr.ac.kopo.ui.account.DepositUI;
+import kr.ac.kopo.ui.account.DeleteAccountUI;
+import kr.ac.kopo.ui.account.DepositAccountUI;
 import kr.ac.kopo.ui.account.OpenAccountUI;
 import kr.ac.kopo.ui.account.SearchAccountUI;
 import kr.ac.kopo.ui.account.SearchAllUI;
 import kr.ac.kopo.ui.account.SearchBankUI;
 import kr.ac.kopo.ui.account.SearchTransactionUI;
-import kr.ac.kopo.ui.account.TransferUI;
+import kr.ac.kopo.ui.account.TransferAmountUI;
 import kr.ac.kopo.ui.account.UpdateNicknameUI;
-import kr.ac.kopo.ui.account.WithdrawUI;
+import kr.ac.kopo.ui.account.WithdrawAmountUI;
 import kr.ac.kopo.ui.customer.LoginUI;
 import kr.ac.kopo.ui.customer.RegisterUI;
 
@@ -48,36 +48,47 @@ public class AccountUI extends BaseUI {
 						switch (type2) {
 						case 1:
 							ui = new SearchAllUI(); // 묵시적 형변환
+							ui.execute();
 							break;
 						case 2:
 							ui = new SearchBankUI();
+							ui.execute();
 							break;
 						case 3:
 							ui = new SearchAccountUI();
+							ui.execute();
 							break;
 						case 4:
 							ui = new SearchTransactionUI(); // 거래내역 조회
+							ui.execute();
 							break;
 						case 5:
-							ui = new TransferUI();
+							ui = new TransferAmountUI();
+							ui.execute();
 							break;
 						case 6:
-							ui = new DepositUI();
+							ui = new DepositAccountUI();
+							ui.execute();
 							break;
 						case 7:
-							ui = new WithdrawUI();
+							ui = new WithdrawAmountUI();
+							ui.execute();
 							break;
 						case 8:
 							ui = new UpdateNicknameUI();
+							ui.execute();
 							break;
 						case 9:
 							ui = new OpenAccountUI();
+							ui.execute();
 							break;
 						case 10:
-							ui = new DeleteUI();
+							ui = new DeleteAccountUI();
+							ui.execute();
 							break;
 						case 0:
 							ui = new ExitUI();
+							ui.execute();
 							break;
 						}
 						if (ui == null) {

@@ -2,7 +2,7 @@ package kr.ac.kopo.ui.account;
 
 import kr.ac.kopo.ui.AccountBaseUI;
 import kr.ac.kopo.ui.CustomerBaseUI;
-import kr.ac.kopo.vo.AccountVO;
+import kr.ac.kopo.vo.Account;
 
 public class UpdateNicknameUI extends AccountBaseUI {
 
@@ -16,7 +16,7 @@ public class UpdateNicknameUI extends AccountBaseUI {
 		while (true) {
 			String nicknameAccountNum = scanStr("\t별칭을 설정할 계좌번호를 입력해주세요 : ");
 
-			AccountVO accountCheck = aservice.searchAccount(nicknameAccountNum);
+			Account accountCheck = aservice.searchAccount(nicknameAccountNum);
 			if (accountCheck.getAccount() == null) {
 				System.out.println("\t잘못된 계좌정보입니다. 다시 입력해주세요.");
 				System.out.println();

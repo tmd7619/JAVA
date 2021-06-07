@@ -1,6 +1,6 @@
 package kr.ac.kopo.vo;
 
-public class CustomerVO {
+public class Customer {
 	
 	private String id; // 아이디
 	private String pwd; // 비밀번호
@@ -12,10 +12,10 @@ public class CustomerVO {
 	
 	
 	
-	public CustomerVO() {
+	public Customer() {
 		
 	}
-	public CustomerVO(String id, String pwd, String name, String birth, String regdate) {
+	public Customer(String id, String pwd, String name, String birth, String regdate) {
 		super();
 		this.id = id;
 		this.pwd = pwd;
@@ -23,7 +23,7 @@ public class CustomerVO {
 		this.birth = birth;
 		this.regdate = regdate;
 	}
-	public CustomerVO(String id, String pwd, String name, String birth) {
+	public Customer(String id, String pwd, String name, String birth) {
 		super();
 		this.id = id;
 		this.pwd = pwd;

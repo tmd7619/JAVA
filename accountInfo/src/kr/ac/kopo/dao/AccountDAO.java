@@ -10,14 +10,14 @@ import java.util.List;
 import kr.ac.kopo.ui.CustomerBaseUI;
 import kr.ac.kopo.util.ConnectionFactory;
 import kr.ac.kopo.util.JDBCClose;
-import kr.ac.kopo.vo.AccountVO;
-import kr.ac.kopo.vo.TransactionVO;
+import kr.ac.kopo.vo.Account;
+import kr.ac.kopo.vo.Transaction;
 
 public class AccountDAO {
 
-	public List<AccountVO> searchAll() throws Exception { // 전체 계좌 조회
+	public List<Account> searchAll() throws Exception { // 전체 계좌 조회
 
-		List<AccountVO> list = new ArrayList<AccountVO>();
+		List<Account> list = new ArrayList<Account>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		StringBuilder sql = new StringBuilder();
@@ -36,7 +36,7 @@ public class AccountDAO {
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				AccountVO account = new AccountVO();
+				Account account = new Account();
 				account.setAccount(rs.getString("account"));
 				account.setBankName(rs.getString("bankname"));
 				account.setCustomerName(rs.getString("customer_name"));
@@ -57,9 +57,9 @@ public class AccountDAO {
 		return list;
 	}
 
-	public List<AccountVO> searchBank(String bankName) throws Exception { // 은행별 계좌 조회
+	public List<Account> searchBank(String bankName) throws Exception { // 은행별 계좌 조회
 
-		List<AccountVO> list = new ArrayList<AccountVO>();
+		List<Account> list = new ArrayList<Account>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		StringBuilder sql = new StringBuilder();
@@ -78,7 +78,7 @@ public class AccountDAO {
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				AccountVO account = new AccountVO();
+				Account account = new Account();
 				account.setAccount(rs.getString(1));
 				account.setBankName(rs.getString(2));
 				account.setCustomerName(rs.getString(3));
@@ -100,13 +100,13 @@ public class AccountDAO {
 
 	}
 
-	public AccountVO searchAccount(String accountNum) throws Exception { // 계좌번호로 게좌 조회
+	public Account searchAccount(String accountNum) throws Exception { // 계좌번호로 게좌 조회
 
-		List<AccountVO> list = new ArrayList<AccountVO>();
+		List<Account> list = new ArrayList<Account>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		StringBuilder sql = new StringBuilder();
-		AccountVO account = new AccountVO();
+		Account account = new Account();
 		
 		try {
 			conn = new ConnectionFactory().getConnection();
@@ -172,7 +172,6 @@ public class AccountDAO {
 		PreparedStatement pstmt2 = null;
 		StringBuilder sql = new StringBuilder();
 		StringBuilder sql2 = new StringBuilder();
-		System.out.println(accountNum);
 		
 		int check = 0;
 		
@@ -264,7 +263,7 @@ public class AccountDAO {
 		
 	
 
-	public AccountVO openAccount(AccountVO newAccount) { // 계좌개설
+	public Account openAccount(Account newAccount) { // 계좌개설
 		
 		Connection conn  = null;
 		PreparedStatement pstmt = null;
@@ -317,7 +316,6 @@ public class AccountDAO {
 		}finally {
 			JDBCClose.close(conn, pstmt);
 		}
-		System.out.println(latelyDate);
 		return latelyDate;
 	}
 
@@ -490,8 +488,8 @@ public class AccountDAO {
 		
 	}
 
-	public AccountVO searchOtderAccount(String receiverAccountNum) {
-		AccountVO account = new AccountVO();
+	public Account searchOtderAccount(String receiverAccountNum) {
+		Account account = new Account();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		StringBuilder sql = new StringBuilder();
@@ -507,7 +505,7 @@ public class AccountDAO {
 			ResultSet rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				account = new AccountVO();
+				account = new Account();
 				account.setAccount(rs.getString(1));
 				account.setBankName(rs.getString(2));
 				account.setCustomerName(rs.getString(3));
@@ -527,8 +525,8 @@ public class AccountDAO {
 		return account;
 	}
 
-	public List<TransactionVO> searchTransaction() { // 거래내역 조회하기
-		List<TransactionVO> list = new ArrayList<TransactionVO>();
+	public List<Transaction> searchTransaction() { // 거래내역 조회하기
+		List<Transaction> list = new ArrayList<Transaction>();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		StringBuilder sql = new StringBuilder();
@@ -549,7 +547,7 @@ public class AccountDAO {
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				TransactionVO transaction = new TransactionVO();
+				Transaction transaction = new Transaction();
 				transaction.setTranId(rs.getString("TID"));
 				transaction.setTranBankname(rs.getString("TRAN_BANKNAME"));
 				transaction.setTranAccount(rs.getString("TRAN_ACCOUNT"));
