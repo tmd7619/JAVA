@@ -1,4 +1,4 @@
-package kr.ac.kopo.dao;
+package kr.ac.kopo.account.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,11 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import kr.ac.kopo.ui.CustomerBaseUI;
+import kr.ac.kopo.account.vo.Account;
+import kr.ac.kopo.account.vo.Transaction;
+import kr.ac.kopo.customer.ui.CustomerBaseUI;
 import kr.ac.kopo.util.ConnectionFactory;
 import kr.ac.kopo.util.JDBCClose;
-import kr.ac.kopo.vo.Account;
-import kr.ac.kopo.vo.Transaction;
 
 public class AccountDAO {
 

@@ -1,8 +1,7 @@
-package kr.ac.kopo.ui.account;
+package kr.ac.kopo.account.ui;
 
-import kr.ac.kopo.ui.AccountBaseUI;
-import kr.ac.kopo.ui.CustomerBaseUI;
-import kr.ac.kopo.vo.Account;
+import kr.ac.kopo.account.vo.Account;
+import kr.ac.kopo.customer.ui.CustomerBaseUI;
 
 public class SearchAccountUI extends AccountBaseUI {
 

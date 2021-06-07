@@ -1,7 +1,6 @@
-package kr.ac.kopo.ui.customer;
+package kr.ac.kopo.customer.ui;
 
-import kr.ac.kopo.ui.CustomerBaseUI;
-import kr.ac.kopo.vo.Customer;
+import kr.ac.kopo.customer.vo.Customer;
 
 public class LoginUI extends CustomerBaseUI {
 

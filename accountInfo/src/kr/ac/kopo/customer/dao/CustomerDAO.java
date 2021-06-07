@@ -1,12 +1,12 @@
-package kr.ac.kopo.dao;
+package kr.ac.kopo.customer.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import kr.ac.kopo.customer.vo.Customer;
 import kr.ac.kopo.util.ConnectionFactory;
 import kr.ac.kopo.util.JDBCClose;
-import kr.ac.kopo.vo.Customer;
 
 
 public class CustomerDAO {

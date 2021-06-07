@@ -1,6 +1,7 @@
-package kr.ac.kopo.ui;
+package kr.ac.kopo.customer.ui;
 
-import kr.ac.kopo.vo.Customer;
+import kr.ac.kopo.customer.vo.Customer;
+import kr.ac.kopo.ui.BaseUI;
 
 
 /*

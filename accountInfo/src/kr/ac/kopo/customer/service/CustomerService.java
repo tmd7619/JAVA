@@ -1,7 +1,7 @@
-package kr.ac.kopo.service;
+package kr.ac.kopo.customer.service;
 
-import kr.ac.kopo.dao.CustomerDAO;
-import kr.ac.kopo.vo.Customer;
+import kr.ac.kopo.customer.dao.CustomerDAO;
+import kr.ac.kopo.customer.vo.Customer;
 
 public class CustomerService {
 

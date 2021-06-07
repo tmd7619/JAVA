@@ -1,4 +1,4 @@
-package kr.ac.kopo.service;
+package kr.ac.kopo.account.service;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -6,11 +6,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-import kr.ac.kopo.dao.AccountDAO;
-import kr.ac.kopo.ui.AccountBaseUI;
-import kr.ac.kopo.ui.CustomerBaseUI;
-import kr.ac.kopo.vo.Account;
-import kr.ac.kopo.vo.Transaction;
+import kr.ac.kopo.account.dao.AccountDAO;
+import kr.ac.kopo.account.ui.AccountBaseUI;
+import kr.ac.kopo.account.vo.Account;
+import kr.ac.kopo.account.vo.Transaction;
+import kr.ac.kopo.customer.ui.CustomerBaseUI;
 
 public class AccountService {
 
