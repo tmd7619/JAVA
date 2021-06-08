@@ -1,8 +1,9 @@
-package kr.ac.kopo.ui;
+package kr.ac.kopo.account.ui;
 
 import java.util.List;
 
-import kr.ac.kopo.vo.Account;
+import kr.ac.kopo.account.vo.Account;
+import kr.ac.kopo.ui.BaseUI;
 
 public abstract class AccountBaseUI extends BaseUI {
 	

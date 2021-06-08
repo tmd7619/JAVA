@@ -1,4 +1,4 @@
-package kr.ac.kopo.vo;
+package kr.ac.kopo.customer.vo;
 
 public class Customer {
 	

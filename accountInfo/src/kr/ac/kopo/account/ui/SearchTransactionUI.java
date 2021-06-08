@@ -1,10 +1,9 @@
-package kr.ac.kopo.ui.account;
+package kr.ac.kopo.account.ui;
 
 import java.util.List;
 
-import kr.ac.kopo.ui.AccountBaseUI;
-import kr.ac.kopo.ui.CustomerBaseUI;
-import kr.ac.kopo.vo.Transaction;
+import kr.ac.kopo.account.vo.Transaction;
+import kr.ac.kopo.customer.ui.CustomerBaseUI;
 
 public class SearchTransactionUI extends AccountBaseUI {
 

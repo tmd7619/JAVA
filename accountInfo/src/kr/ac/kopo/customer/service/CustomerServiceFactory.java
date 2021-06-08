@@ -1,4 +1,4 @@
-package kr.ac.kopo.service;
+package kr.ac.kopo.customer.service;
 
 public class CustomerServiceFactory {
 

@@ -1,7 +1,7 @@
-package kr.ac.kopo.ui.customer;
+package kr.ac.kopo.customer.ui;
 
+import kr.ac.kopo.customer.vo.Customer;
 import kr.ac.kopo.ui.BaseUI;
-import kr.ac.kopo.vo.Customer;
 
 public class RegisterUI extends BaseUI{
 

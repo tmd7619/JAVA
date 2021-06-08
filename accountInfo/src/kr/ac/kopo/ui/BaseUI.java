@@ -2,10 +2,10 @@ package kr.ac.kopo.ui;
 
 import java.util.Scanner;
 
-import kr.ac.kopo.service.AccountService;
-import kr.ac.kopo.service.AccountServiceFactory;
-import kr.ac.kopo.service.CustomerService;
-import kr.ac.kopo.service.CustomerServiceFactory;
+import kr.ac.kopo.account.service.AccountService;
+import kr.ac.kopo.account.service.AccountServiceFactory;
+import kr.ac.kopo.customer.service.CustomerService;
+import kr.ac.kopo.customer.service.CustomerServiceFactory;
 
 
 public abstract class BaseUI implements IAccountUI {

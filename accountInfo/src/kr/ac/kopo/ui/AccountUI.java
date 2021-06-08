@@ -1,17 +1,18 @@
 package kr.ac.kopo.ui;
 
-import kr.ac.kopo.ui.account.DeleteAccountUI;
-import kr.ac.kopo.ui.account.DepositAccountUI;
-import kr.ac.kopo.ui.account.OpenAccountUI;
-import kr.ac.kopo.ui.account.SearchAccountUI;
-import kr.ac.kopo.ui.account.SearchAllUI;
-import kr.ac.kopo.ui.account.SearchBankUI;
-import kr.ac.kopo.ui.account.SearchTransactionUI;
-import kr.ac.kopo.ui.account.TransferAmountUI;
-import kr.ac.kopo.ui.account.UpdateNicknameUI;
-import kr.ac.kopo.ui.account.WithdrawAmountUI;
-import kr.ac.kopo.ui.customer.LoginUI;
-import kr.ac.kopo.ui.customer.RegisterUI;
+import kr.ac.kopo.account.ui.DeleteAccountUI;
+import kr.ac.kopo.account.ui.DepositAccountUI;
+import kr.ac.kopo.account.ui.OpenAccountUI;
+import kr.ac.kopo.account.ui.SearchAccountUI;
+import kr.ac.kopo.account.ui.SearchAllUI;
+import kr.ac.kopo.account.ui.SearchBankUI;
+import kr.ac.kopo.account.ui.SearchTransactionUI;
+import kr.ac.kopo.account.ui.TransferAmountUI;
+import kr.ac.kopo.account.ui.UpdateNicknameUI;
+import kr.ac.kopo.account.ui.WithdrawAmountUI;
+import kr.ac.kopo.customer.ui.CustomerBaseUI;
+import kr.ac.kopo.customer.ui.LoginUI;
+import kr.ac.kopo.customer.ui.RegisterUI;
 
 public class AccountUI extends BaseUI {
 

@@ -1,4 +1,4 @@
-package kr.ac.kopo.vo;
+package kr.ac.kopo.account.vo;
 
 public class Transaction { // 거래내역 VO
 	
